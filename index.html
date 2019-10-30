@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+
+    <!-- <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                      <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s2">
+                      <input id="Pokemon-name" type="text" class="validate">
+                      <label for="Pokemon-name">Pokemon Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                        <div class="input-field col s2">
+                                <input id="Pokemon_type" type="text" class="validate">
+                                <label for="Pokemon_type">Pokemon Type</label>
+                              </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s4">
+                      <input id="password" type="password" class="validate">
+                      <label for="password">Pokemon Something</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s4">
+                      <input id="email" type="email" class="validate">
+                      <label for="email">Pokemon Something</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                  </div>
+                </form>
+                
+              </div> -->
+
+    <div class="col s10">
+        <h2 class="header">Pokedex</h2>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img
+                    src="data:image/png;base64,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">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input value="Pikachu" id="first_name2" type="text" class="validate">
+                        <label class="active" for="first_name2">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input value="Lightning" id="first_name2" type="text" class="validate">
+                        <label class="active" for="first_name2">Type</label>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="input-field col s6">
+                            <input value="Rat" id="first_name2" type="text" class="validate">
+                            <label class="active" for="first_name2">Other Pokemon Stuff</label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
