@@ -8,7 +8,6 @@
 // })
 
 
-
 function getWeather() {
     
     let theCity = userInput //captures the city variable    
@@ -21,7 +20,7 @@ function getWeather() {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response){
+    }).then(function(response) {
         // console.log(response.data)
 
         let results = response.data
@@ -31,12 +30,12 @@ function getWeather() {
     })
 
     //weather.io weather codes - to be used for conditional statements (comparing current weather against the type)
-    //sunny = 800
-    //partly cloudy = 801 and 802
-    //cloudy = 804
+    // sunny = 800
+    // partly cloudy = 801 and 802
+    // cloudy = 804
     // raining = 200 - 502
     // snow = 600 - 623
     // fog = 741 and 751   
-    //windy = 803
+    // windy = 803
 
 }
