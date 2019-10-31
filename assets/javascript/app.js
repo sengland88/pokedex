@@ -17,10 +17,6 @@
 
 // })
 
-getPokemon()
-
-// getWeather()
-// getWeaknesses()
 
 theWeatherCode(200)
 
@@ -57,66 +53,6 @@ function getWeather() {
     // windy = 803
 
 }
-
-function getPokemon() {
-    
-    let thePokemon = "rattata"
-    let pokemonURL = "https://pokeapi.co/api/v2/pokemon/" + thePokemon
-
-    $.ajax({
-        url: pokemonURL,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response)
-        
-        let pokemonResults = response
-
-        console.log(pokemonResults.name)
-        console.log(pokemonResults.types[0].type.name)
-        console.log(pokemonResults.sprites.front_default)
-        console.log(pokemonResults.id)
-
-        let id = pokemonResults.id
-
-        getPokemonEvolution(id)
-
-
-
-        //can do shiny pokemon - do have png under sprites
-    })
-
-    
-}
-
-// function getPokemonEvolution() {
-
-//     let theID = 19
-//     let pokemonURL = "https://pokeapi.co/api/v2/evolution-chain/" + theID
-
-//     $.ajax({
-//         url: pokemonURL,
-//         method: "GET"
-//     }).then(function(response) {
-
-//         console.log(response)
-//     })
-
-// }
-
-// function getWeaknesses() {
-
-//     let weak = 19
-//     let weaknessURL = "https://pokeapi.co/api/v2/ability/" + weak
-
-//     $.ajax({
-//         url: weaknessURL,
-//         method: "GET"
-//     }).then(function(response) {
-
-//         console.log(response)
-//     })
-
-// }
 
 function theWeatherCode(code) {
 
