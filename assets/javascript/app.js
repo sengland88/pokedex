@@ -1,3 +1,13 @@
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBttDw_iZJJGaw0fmFvFUw-NaiG627H_dI",
+    databaseURL: "https://pokedex-4f772.firebaseio.com",
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  let database = firebase.initializeApp()
+
 //this is dummy text for the on.click function
 // $("#submit").on("click", function(){
 
@@ -8,7 +18,8 @@
 // })
 
 getPokemon()
-getWeather()
+// getWeather()
+// getWeaknesses()
 
 
 function getWeather() {
@@ -74,17 +85,32 @@ function getPokemon() {
     
 }
 
-function getPokemonEvolution(evolution) {
+// function getPokemonEvolution() {
 
-    let theID = evolution
-    let pokemonURL = "https://pokeapi.co/api/v2/evolution-chain/"
+//     let theID = 19
+//     let pokemonURL = "https://pokeapi.co/api/v2/evolution-chain/" + theID
 
-    $.ajax({
-        url: pokemonURL,
-        method: "GET"
-    }).then(function(response) {
+//     $.ajax({
+//         url: pokemonURL,
+//         method: "GET"
+//     }).then(function(response) {
 
-        console.log(response)
-    })
+//         console.log(response)
+//     })
 
-}
+// }
+
+// function getWeaknesses() {
+
+//     let weak = 19
+//     let weaknessURL = "https://pokeapi.co/api/v2/ability/" + weak
+
+//     $.ajax({
+//         url: weaknessURL,
+//         method: "GET"
+//     }).then(function(response) {
+
+//         console.log(response)
+//     })
+
+// }
