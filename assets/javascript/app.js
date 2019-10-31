@@ -1,12 +1,12 @@
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBttDw_iZJJGaw0fmFvFUw-NaiG627H_dI",
-    databaseURL: "https://pokedex-4f772.firebaseio.com",
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+//   // Your web app's Firebase configuration
+//   var firebaseConfig = {
+//     apiKey: "AIzaSyBttDw_iZJJGaw0fmFvFUw-NaiG627H_dI",
+//     databaseURL: "https://pokedex-4f772.firebaseio.com",
+//   };
+//   // Initialize Firebase
+//   firebase.initializeApp(firebaseConfig);
 
-  let database = firebase.initializeApp()
+//   let database = firebase.initializeApp()
 
 //this is dummy text for the on.click function
 // $("#submit").on("click", function(){
@@ -18,8 +18,11 @@
 // })
 
 getPokemon()
+
 // getWeather()
 // getWeaknesses()
+
+theWeatherCode(200)
 
 
 function getWeather() {
@@ -114,3 +117,48 @@ function getPokemon() {
 //     })
 
 // }
+
+function theWeatherCode(code) {
+
+    if (code === 741 || code === 751) {
+        console.log("fog")
+        return
+    }
+
+    if (code === 803) {
+        console.log("windy")
+        return
+    }
+
+    if (code === 801 || code === 802) {
+        console.log("partly cloudy")
+        return
+    }
+
+    if (code === 800) {
+        console.log("sunny")
+        return
+    }
+
+    if (code >= 623 || code <= 600) {
+        console.log("snowy")
+        return
+    }
+
+    if (code >= 502 || code <= 200) {
+        console.log("rainy")
+        return
+    } 
+
+
+
+
+
+
+
+
+
+
+
+
+}
