@@ -2,8 +2,7 @@
 
 $("#submitBtn").on("click", function(event) {
 
-    event.preventDefault()
-    
+    event.preventDefault()    
     
     getPokemon()
     searchDex()
@@ -29,22 +28,21 @@ function getPokemon() {
       console.log(pokemonResults.sprites.front_default)
       console.log(pokemonResults.id)  
 
-      database.ref().push({
-        name: pokemonResults.name,
-        type: pokemonResults.types[0].type.name,
-        sprite: pokemonResults.sprites.front_default,
-      })
+      // database.ref().push({
+      //   name: pokemonResults.name,
+      //   type: pokemonResults.types[0].type.name,
+      //   sprite: pokemonResults.sprites.front_default,
+      // })
 
       //can do shiny pokemon - do have png under sprites
   })
-
   
 }
 
 function searchDex(){
 
   let pokiURL = "https://pokeapi.co/api/v2/pokemon/"
-  let poki = "rayquaza"
+  let poki = "rattata"
   let dexURL = pokiURL + poki
 
   $.ajax({
