@@ -1,38 +1,15 @@
-//this is dummy text for the on.click function
-// $("#submit").on("click", function(){
-
-//     userInput = $("#test").val().trim().toLowerCase()
-//     console.log(userInput)
-//     searchDex()
-
-function searchDex(){
-  let pokiURL = "https://pokeapi.co/api/v2/pokemon/"
-  let poki = "pikachu"
-
-  let dexURL = pokiURL + poki
-
-  $.ajax({
-    url: dexURL,
-    method: "GET"
-  }).then(function(response) {
-    let dexRes = response.name 
-    let typing = response.types[0].type
-
-    console.log(response);
-    console.log(dexRes)
-    console.log(typing);
 
 
-  })
+$("#submitBtn").on("click", function(event) {
 
+    event.preventDefault()
+    
+    
+    getPokemon()
+    searchDex()
 
+})
 
-}
-
-
-searchDex()
-
-// }) 
 
 function getPokemon() {
     
@@ -50,13 +27,13 @@ function getPokemon() {
       console.log(pokemonResults.name)
       console.log(pokemonResults.types[0].type.name)
       console.log(pokemonResults.sprites.front_default)
-      console.log(pokemonResults.id)
+      console.log(pokemonResults.id)  
 
-      let id = pokemonResults.id
-
-      getPokemonEvolution(id)
-
-
+      database.ref().push({
+        name: pokemonResults.name,
+        type: pokemonResults.types[0].type.name,
+        sprite: pokemonResults.sprites.front_default,
+      })
 
       //can do shiny pokemon - do have png under sprites
   })
@@ -64,33 +41,59 @@ function getPokemon() {
   
 }
 
-// function getPokemonEvolution() {
+function searchDex(){
 
-//     let theID = 19
-//     let pokemonURL = "https://pokeapi.co/api/v2/evolution-chain/" + theID
+  let pokiURL = "https://pokeapi.co/api/v2/pokemon/"
+  let poki = "rayquaza"
+  let dexURL = pokiURL + poki
 
-//     $.ajax({
-//         url: pokemonURL,
-//         method: "GET"
-//     }).then(function(response) {
+  $.ajax({
+    url: dexURL,
+    method: "GET"
+  }).then(function(response) {
 
-//         console.log(response)
-//     })
+    let dexRes = response.name 
+    let typing = response.types[0].type
+    let pokiMg = response.sprites.front_default;
 
-// }
+    let im = $("<img>").attr("src", pokiMg)              
 
-// function getWeaknesses() {
+    $("#PokiMg").append(im)
+    console.log(response);
+    console.log(dexRes)
+    console.log(typing);
+  })
+}
 
-//     let weak = 19
-//     let weaknessURL = "https://pokeapi.co/api/v2/ability/" + weak
+// code below here isnt called or used yet
 
-//     $.ajax({
-//         url: weaknessURL,
-//         method: "GET"
-//     }).then(function(response) {
+function getPokemonEvolution() {
 
-//         console.log(response)
-//     })
+    let theID = 19
+    let pokemonURL = "https://pokeapi.co/api/v2/evolution-chain/" + theID
 
-// }
+    $.ajax({
+        url: pokemonURL,
+        method: "GET"
+    }).then(function(response) {
+
+        console.log(response)
+    })
+
+}
+
+function getWeaknesses() {
+
+    let weak = 19
+    let weaknessURL = "https://pokeapi.co/api/v2/ability/" + weak
+
+    $.ajax({
+        url: weaknessURL,
+        method: "GET"
+    }).then(function(response) {
+
+        console.log(response)
+    })
+
+}
 

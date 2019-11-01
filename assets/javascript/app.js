@@ -1,22 +1,12 @@
-//   // Your web app's Firebase configuration
-//   var firebaseConfig = {
-//     apiKey: "AIzaSyBttDw_iZJJGaw0fmFvFUw-NaiG627H_dI",
-//     databaseURL: "https://pokedex-4f772.firebaseio.com",
-//   };
-//   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBttDw_iZJJGaw0fmFvFUw-NaiG627H_dI",
+    databaseURL: "https://pokedex-4f772.firebaseio.com",
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-//   let database = firebase.initializeApp()
-
-//this is dummy text for the on.click function
-// $("#submit").on("click", function(){
-
-//     userInput = $("#test").val().trim().toLowerCase()
-//     console.log(userInput)
-//     getWeather()
-
-// })
-
+  let database = firebase.database()
 
 theWeatherCode(200)
 
