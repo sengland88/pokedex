@@ -8,8 +8,7 @@
 
   let database = firebase.database()
 
-theWeatherCode(200)
-
+theWeatherCode(801)
 
 function getWeather() {
     
@@ -46,11 +45,6 @@ function getWeather() {
 
 function theWeatherCode(code) {
 
-    if (code === 741 || code === 751) {
-        console.log("fog")
-        return
-    }
-
     if (code === 803) {
         console.log("windy")
         return
@@ -66,25 +60,19 @@ function theWeatherCode(code) {
         return
     }
 
-    if (code >= 623 || code <= 600) {
+    if (code === 741 || code === 751) {
+        console.log("fog")
+        return
+    }
+
+    if (code >= 600 && code <= 623) {
         console.log("snowy")
         return
     }
 
-    if (code >= 502 || code <= 200) {
+    if (code >= 200 && code <= 502) {
         console.log("rainy")
         return
-    } 
-
-
-
-
-
-
-
-
-
-
-
+    }    
 
 }
