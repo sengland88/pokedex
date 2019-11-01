@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-
+  <script src="https://christinecha.github.io/choreographer-js/dist/choreographer.min.js"></script>
+  <script src="../pokedex/assets/javascript/app.js" type="text/javascript"></script>
+  <script src="../pokedex/assets/javascript/PokeDexApp.js" type="text/javascript"></script>
+  <script src ="https://w3c.github.io/geolocation-api/"></script>
   <title>Poke Dex</title>
 
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
@@ -26,7 +29,7 @@
 </head>
 
 <body>
-  
+
 
   <!-- 
                 <form class="col s12">
@@ -65,17 +68,7 @@
                 
               </div> -->
 
-  <nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-    </div>
-  </nav>
+
 
 
 
@@ -83,12 +76,23 @@
 
 
   <div class="container">
+    <nav>
+      <div class="nav-wrapper">
+        <form>
+          <div class="input-field">
+            <input id="search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
     <div class="row">
       <div class="col s6">
 
         <div class="card horizontal">
           <div class="card-image">
-            <img src="assets/images/placeholder.png">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png">
           </div>
 
         </div> <!-- end of the horizontal card div -->
@@ -97,8 +101,15 @@
       <div class="col s6">
 
         <div class="card horizontal">
-          <div class="card-image">
-            <img src="assets/images/placeholder.png">
+          <div class="col s6"><form action="/action_page.php">
+            Height<input type="text" name="height"><br>
+            Weight<input type="text" name="weight"><br>
+          </form></div>
+          <div class="col s6"><form action="/action_page.php">
+            Height<input type="text" name="height"><br>
+            Weight<input type="text" name="weight"><br>
+          </form>
+
           </div>
 
         </div> <!-- end of the horizontal card div -->
@@ -117,13 +128,17 @@
       </div> <!-- end of the first column div -->
 
       <div class="col s6">
+        <h4>Types</h4>
+        <button class="btn waves-effect border-radius" type="text" name="action">Pikachu</button>
+        <button class="btn waves-effect" type="text" name="action">Charmander</button>
+        <button class="btn waves-effect" type="text" name="action">Shelby</button>
+        <h4>Weakness</h4>
+        <button class="btn waves-effect" type="text" name="action">Charmander</button>
+        <button class="btn waves-effect" type="text" name="action">Shelby</button>
+        
 
-        <div class="card horizontal">
-            <button class="btn waves-effect waves-light" type="text" name="action">Pikachu
-                <i class="material-icons right">send</i>
-              </button>
 
-        </div> <!-- end of the horizontal card div -->
+
       </div> <!-- end of the first column div -->
 
     </div>
