@@ -2,30 +2,32 @@
 <html lang="en">
 
 <head>
-  <script src="https://christinecha.github.io/choreographer-js/dist/choreographer.min.js"></script>
-  <script src="../pokedex/assets/javascript/app.js" type="text/javascript"></script>
-  <script src="../pokedex/assets/javascript/PokeDexApp.js" type="text/javascript"></script>
-  <script src ="https://w3c.github.io/geolocation-api/"></script>
+  
   <title>Poke Dex</title>
-
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
 
   <!-- reset.css file that may need to be added to css folder -->
   <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-  <!-- Compiled and minified CSS for Materialize -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
   <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Compiled and minified CSS for Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  
 
   <!-- Moment.js cdn -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"
-    integrity="sha256-I5ZXO8KcMnqNkrXU7baGig70nATYjNDnxxA2d40PcR8=" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"></script> -->
+
+  <!-- choreographer cdn -->
+  <!-- <script src="https://christinecha.github.io/choreographer-js/dist/choreographer.min.js"></script> -->
+
+  <!-- geolocation cdn -->
+  <script src ="https://w3c.github.io/geolocation-api/"></script>
+  
+  <!-- firebase cdn -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+  
 </head>
 
 <body>
@@ -68,21 +70,14 @@
                 
               </div> -->
 
-
-
-
-
-
-
-
   <div class="container">
     <nav>
       <div class="nav-wrapper">
         <form>
           <div class="input-field">
-            <input id="search" type="search" required>
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
+            <input id="search" id="userInput" type="search">
+            <label class="label-icon" id="submitBtn" for="search"><i class="material-icons">search</i></label>
+            <!-- <i class="material-icons">close</i> -->
           </div>
         </form>
       </div>
@@ -91,8 +86,8 @@
       <div class="col s6">
 
         <div class="card horizontal">
-          <div class="card-image">
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png">
+          <div class="card-image" id="PokiMg">
+            <!-- <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png"> -->
           </div>
 
         </div> <!-- end of the horizontal card div -->
@@ -134,8 +129,7 @@
         <button class="btn waves-effect" type="text" name="action">Shelby</button>
         <h4>Weakness</h4>
         <button class="btn waves-effect" type="text" name="action">Charmander</button>
-        <button class="btn waves-effect" type="text" name="action">Shelby</button>
-        
+        <button class="btn waves-effect" type="text" name="action">Shelby</button>        
 
 
 
@@ -189,7 +183,8 @@
 
 
 
-  <script src="../pokedex/assets/javascript/app.js"></script>
+  <script src="assets/javascript/app.js" type="text/javascript"></script>
+  <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
 </body>
 
 </html>
