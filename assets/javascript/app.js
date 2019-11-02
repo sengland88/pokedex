@@ -31,6 +31,7 @@ function getLocation() {
             let latitude  = position.coords.latitude;
             let longitude = position.coords.longitude;
             getWeather(latitude, longitude)
+            $("#location").html("location found")
 
         } // else if (!navigator.geolocation) {
         //     let latitude  = "30.4085477"
