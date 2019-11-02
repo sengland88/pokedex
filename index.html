@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  
+
   <title>Poke Dex</title>
 
   <!-- reset.css file that may need to be added to css folder -->
@@ -13,7 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Compiled and minified CSS for Materialize -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
   <!-- Moment.js cdn -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"></script> -->
@@ -22,62 +22,27 @@
   <!-- <script src="https://christinecha.github.io/choreographer-js/dist/choreographer.min.js"></script> -->
 
   <!-- geolocation cdn -->
-  <script src ="https://w3c.github.io/geolocation-api/"></script>
-  
+  <script src="https://w3c.github.io/geolocation-api/"></script>
+
   <!-- firebase cdn -->
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-  
+
 </head>
 
 <body>
 
-
-  <!-- 
-                <form class="col s12">
-                  
-                    <div class="input-field col s6">
-                      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                      <label for="first_name">First Name</label>
-                    </div>
-                    <div class="input-field col s2">
-                      <input id="Pokemon-name" type="text" class="validate">
-                      <label for="Pokemon-name">Pokemon Name</label>
-                    </div>
-                  </div>
-                  
-                        <div class="input-field col s2">
-                                <input id="Pokemon_type" type="text" class="validate">
-                                <label for="Pokemon_type">Pokemon Type</label>
-                              </div>
-                  </div>
-                  
-                    <div class="input-field col s4">
-                      <input id="password" type="password" class="validate">
-                      <label for="password">Pokemon Something</label>
-                    </div>
-                  </div>
-                  
-                    <div class="input-field col s4">
-                      <input id="email" type="email" class="validate">
-                      <label for="email">Pokemon Something</label>
-                    </div>
-                  </div>
-                  
-                    
-                  </div>
-                </form>
-                
-              </div> -->
-
   <div class="container">
+    <div class="card jumbo">
+      <img src="assets/images/Screen Shot 2019-11-02 at 11.57.46 AM.png">
+    </div>
     <nav>
       <div class="nav-wrapper">
         <form>
           <div class="input-field">
             <input id="search" id="userInput" type="search">
             <label class="label-icon" id="submitBtn" for="search"><i class="material-icons">search</i></label>
-            <p id = "location"></p>
+            <p id="location"></p>
           </div>
         </form>
       </div>
@@ -90,76 +55,73 @@
             <!-- <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png"> -->
           </div>
 
-        </div> <!-- end of the horizontal card div -->
-      </div> <!-- end of the first column div -->
-
-      <div class="col s6">
-
-        <div class="card horizontal">
-          <div class="col s6"><form action="/action_page.php">
-            Height<input type="text" name="height"><br>
-            Weight<input type="text" name="weight"><br>
-          </form></div>
-          <div class="col s6"><form action="/action_page.php">
-            Height<input type="text" name="height"><br>
-            Weight<input type="text" name="weight"><br>
-          </form>
-
-          </div>
-
-        </div> <!-- end of the horizontal card div -->
-      </div> <!-- end of the first column div -->
-
-    </div>
-    <div class="row">
-      <div class="col s6">
-
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="assets/images/placeholder.png">
-          </div>
-
-        </div> <!-- end of the horizontal card div -->
-      </div> <!-- end of the first column div -->
+        </div>
+      </div>
 
       <div class="col s6">
         <h4>Types</h4>
-        <button class="btn waves-effect border-radius" type="text" name="action">Pikachu</button>
-        <button class="btn waves-effect" type="text" name="action">Charmander</button>
-        <button class="btn waves-effect" type="text" name="action">Shelby</button>
-        <h4>Weakness</h4>
-        <button class="btn waves-effect" type="text" name="action">Charmander</button>
-        <button class="btn waves-effect" type="text" name="action">Shelby</button>        
+
+        <button class="btn waves-effect one" type="text" name="action">FIRE</button>
+        <button class="btn waves-effect two" type="text" name="action">GRASS</button>
+      </div>
+
+      <div class="row">
+        <div class="col s6">
+          <div class="card horizontal" id="attributes">
+            <div class="col s12">
+              <table action="/action_page.php">
+                Height<div type="text" name="height"></div><br>
+                Weight<div type="text" name="weight"></div><br>
+
+              </table>
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="col s6">
+
+          <div class="card horizontal">
+            <div class="card-image">
+              <img src="assets/images/placeholder.png">
+            </div>
+
+          </div>
 
 
 
-      </div> <!-- end of the first column div -->
+
+        </div>
+
+
+
+      </div>
+
+      <div class="card captured">
+        <h5 class="card-header">Captured List</h5>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Dex Number</th>
+                <th scope="col">Sprite</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Height</th>
+                <th scope="col">Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
 
     </div>
 
-    <div class="card captured">
-      <h5 class="card-header">Captured List</h5>
-      <div class="card-body">
-          <table class="table">
-              <thead>
-                  <tr>
-                      <th scope="col">Dex Number</th>
-                      <th scope="col">Sprite</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Type</th>
-                      <th scope="col">Height</th>
-                      <th scope="col">Weight</th>
-                  </tr>
-              </thead>
-              <tbody>
-              </tbody>
-          </table>
-      </div>
-  </div>
-
-
-
-  </div>
 
 
 
@@ -176,8 +138,9 @@
 
 
 
-  <!-- below is where discovered pokemon will live in list format at the moment -->
-  <!-- 
+
+    <!-- below is where discovered pokemon will live in list format at the moment -->
+    <!-- 
     <div class="col s10">
 
       <table>
@@ -203,8 +166,8 @@
 
 
 
-  <script src="assets/javascript/app.js" type="text/javascript"></script>
-  <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
+    <script src="assets/javascript/app.js" type="text/javascript"></script>
+    <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
 </body>
 
 </html>
