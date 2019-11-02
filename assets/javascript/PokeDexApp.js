@@ -1,6 +1,6 @@
-function getPokemon() {
+function getPokemon(poke) {
     
-  let thePokemon = "ditto"
+  let thePokemon = poke
   let pokemonURL = "https://pokeapi.co/api/v2/pokemon/" + thePokemon
 
   $.ajax({
