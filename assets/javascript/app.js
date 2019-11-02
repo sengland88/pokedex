@@ -1,23 +1,54 @@
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBttDw_iZJJGaw0fmFvFUw-NaiG627H_dI",
-    databaseURL: "https://pokedex-4f772.firebaseio.com",
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+// Your web app's Firebase configuration
+var firebaseConfig = {
+apiKey: "AIzaSyBttDw_iZJJGaw0fmFvFUw-NaiG627H_dI",
+databaseURL: "https://pokedex-4f772.firebaseio.com",
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-  let database = firebase.database()
+let database = firebase.database()
 
-theWeatherCode(801)
+let thePokemon = ""
+let theWeather = ""
 
-function getWeather() {
+$("#submitBtn").on("click", function(event) {
+
+    event.preventDefault()    
     
-    // let theCity = userInput //captures the city variable   
-    let  theCity = "orlando"
-    let theKey = "0e1a9770bdf84bbcb4d232a7900a26e1" //stores the weather.io api key
-    console.log(`${theCity} is the City`) //console.logs the city to make sure that it is working
+    getPokemon()
+    // geoFindMe()
+    getLocation()
 
-    let weatherURL = "https://api.weatherbit.io/v2.0/current?key=" + theKey + "&city=" + theCity //concatenates all of the information
+
+})
+
+
+function getLocation() {
+
+    navigator.geolocation.getCurrentPosition(function(position){
+        
+        if (navigator.geolocation) {
+            let latitude  = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            getWeather(latitude, longitude)
+
+        } // else if (!navigator.geolocation) {
+        //     let latitude  = "30.4085477"
+        //     let longitude = "-86.8754809"
+        //     getWeather(latitude, longitude)
+        // }
+    })
+
+}
+
+function getWeather(lat , lon) {
+    
+    // let theCity = userInput //captures the city variable  
+    
+    let theKey = "0e1a9770bdf84bbcb4d232a7900a26e1" //stores the weather.io api key
+    // console.log(`${theCity} is the City`) //console.logs the city to make sure that it is working
+
+    let weatherURL = "https://api.weatherbit.io/v2.0/current?key=" + theKey + "&lat=" + lat + "&lon=" + lon
 
     // AJAX request to retrieve data from API
     $.ajax({
@@ -30,6 +61,10 @@ function getWeather() {
 
         console.log(weatherResults) //console.log the whole results
         console.log(weatherResults[0].weather.code) //console.log the current weather's weather.io code
+
+        let theWeather = Number(weatherResults[0].weather.code)
+
+        theWeatherCode(theWeather)
     })
 
     //weather.io weather codes - to be used for conditional statements (comparing current weather against the type)
@@ -45,34 +80,48 @@ function getWeather() {
 
 function theWeatherCode(code) {
 
-    if (code === 803) {
+    
+    if (code === 803 || code === 804) {
         console.log("windy")
-        return
-    }
+        var code = "windy"
+    } 
 
     if (code === 801 || code === 802) {
         console.log("partly cloudy")
-        return
+        var code = "partly cloudy"
+
     }
 
     if (code === 800) {
         console.log("sunny")
-        return
+        var code = "sunny" 
+
     }
 
     if (code === 741 || code === 751) {
         console.log("fog")
-        return
+        var code = "fog"
+
     }
 
     if (code >= 600 && code <= 623) {
         console.log("snowy")
-        return
+        var code = "snowy"
+
     }
 
     if (code >= 200 && code <= 502) {
         console.log("rainy")
-        return
-    }    
+        var code = "rainy"
+
+    }
+
+    let theCode = code
+    
+    console.log("_____________________")
+    console.log(theCode)
+    console.log("_____________________")
+    
 
 }
+
