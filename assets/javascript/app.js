@@ -13,9 +13,13 @@ let theWeather = ""
 
 $("#submitBtn").on("click", function(event) {
 
-    event.preventDefault()    
+    event.preventDefault()
+
+    let userInput = $("#search").val().trim()
     
-    getPokemon()
+    console.log(userInput)
+    
+    getPokemon(userInput)
     // geoFindMe()
     getLocation()
 
@@ -33,11 +37,17 @@ function getLocation() {
             getWeather(latitude, longitude)
             $("#location").html("location found")
 
+            // $.get( "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8&latlng="+ position.coords.latitude + "," + position.coords.longitude +"&sensor=false", function(data) {
+            //     console.log(data)
+
+            //     })
+
         } // else if (!navigator.geolocation) {
         //     let latitude  = "30.4085477"
         //     let longitude = "-86.8754809"
         //     getWeather(latitude, longitude)
         // }
+
     })
 
 }
