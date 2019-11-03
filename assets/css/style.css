@@ -1,15 +1,51 @@
 body {
     background-image: url("http://i.imgur.com/VW2DYbL.png");
     background-size: cover;
+    background-repeat: no-repeat;
 }
 .border-radius {
     border-radius: 25px;
 }
 .row .col.s6 {
     padding-top: 70px;
-   
+}
+.col.s6 {
+    margin-bottom: 20%;
 }
 .card.captured {
     text-align: center;
     
 }
+img {
+    width: 100%;
+    
+}
+.card.jumbo {
+    background-color: black;
+    margin: 0%;
+    
+}
+.label-icon {
+    background-image: url(../images/pokeball1600.png);
+    background-size: 100%;
+}
+#attributes {
+    border-radius: 15px;
+    background-color: deepskyblue;
+}
+.btn.waves-effect.one {
+    background-color: red;
+}
+.btn.waves-effect.two {
+    background-color: green;
+}
+
+
+
+
+
+
+
+
+
+
