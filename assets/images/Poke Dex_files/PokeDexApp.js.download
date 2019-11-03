@@ -15,11 +15,6 @@ function getPokemon(poke) {
       console.log(pokemonResults.types[0].type.name)
       console.log(pokemonResults.sprites.front_default)
       console.log(pokemonResults.id)
-      console.log(pokemonResults.height)
-      console.log(pokemonResults.weight)
-
-      $("#height").html(pokemonResults.height)
-      $("#weight").html(pokemonResults.weight)
     
       let pokemonName = pokemonResults.name
 
@@ -44,20 +39,21 @@ function searchDex(name) {
     let im = $("<img>").attr("src", pokiMg)              
 
     $("#PokiMg").append(im)
+    console.log(response);
+    console.log(dexRes)
+    console.log(typing);
     
     isWeatherBoosted(typing)
 
   })
 }
-
-
 function isWeatherBoosted(type) {
-
-  let code = temp2
-  let pokemonType = type;
+  console.log("*-*-*-*-*-*-*-*-*-")
+  let code = Number(getLocation())
+  let pokemonType = type
   console.log(code)
   console.log(pokemonType)
-
+  console.log("*-*-*-*-*-*-*-*-*-")
 
   const weatherType = {
       "sunny": ["fire", "grass", "ground"],
