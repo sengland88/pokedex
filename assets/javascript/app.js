@@ -60,7 +60,7 @@ $("#submitBtn").on("click", function(event) {
 
     event.preventDefault()
     
-    let userInput = $("#search").val().trim()
+    let userInput = $("#search").val().trim().toLowerCase()
     console.log(userInput)
     getPokemon(userInput)
     $("#search").val("")
