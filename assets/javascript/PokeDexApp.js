@@ -73,9 +73,10 @@ function getPokemon(poke) {
     
     let theRow4 = $("<tr>");   
     let pokeType = $("<td>").text(type);
+    let pokeWeather =$("<td>").text("This feature is coming soon!");
     let boosted = $("<td>").text(isBoosted);
 
-    theRow4.append(pokeType, boosted);
+    theRow4.append(pokeType, pokeWeather, boosted);
     theRow4.appendTo("#type");
 
     //need data to save to local storage
