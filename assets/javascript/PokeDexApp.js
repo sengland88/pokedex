@@ -1,129 +1,104 @@
 function getPokemon(poke) {
-
-  let thePokemon = poke
-  let pokemonURL = "https://pokeapi.co/api/v2/pokemon/" + thePokemon
-
-  $.ajax({
-      url: pokemonURL,
-      method: "GET"
-  }).then(function(response) {
-      console.log(response)
-      
-      let pokemonResults = response
-
-      console.log(pokemonResults.name)
-      console.log(pokemonResults.types[0].type.name)
-      console.log(pokemonResults.sprites.front_default)
-      console.log(pokemonResults.id)
-      console.log(pokemonResults.height)
-      console.log(pokemonResults.weight)
-
-      $("#height").html(pokemonResults.height)
-      $("#weight").html(pokemonResults.weight)
-    
-      let pokemonName = pokemonResults.name
-
-      searchDex(pokemonName)      
-  })
   
-}
+  $("tbody").empty()
 
-function searchDex(name) {
-
-  let pokiURL = "https://pokeapi.co/api/v2/pokemon/" + name
+  let thePokemon = poke;
+  let pokemonURL = "https://pokeapi.co/api/v2/pokemon/" + thePokemon;
 
   $.ajax({
-    url: pokiURL,
+    url: pokemonURL,
     method: "GET"
   }).then(function(response) {
+    console.log(response);
 
-    let dexRes = response.name
-    let typing = response.types[0].type.name
-    let pokiMg = response.sprites.front_default;
+    let pokemonResults = response;
+      
+    console.log(pokemonResults.name);
+    console.log(pokemonResults.types[0].type.name);
+    console.log(pokemonResults.sprites.front_default);
+    console.log(pokemonResults.id);
+    console.log(pokemonResults.height);
+    console.log(pokemonResults.weight);
+    console.log(pokemonResults.sprites.front_default);
 
-    let im = $("<img>").attr("src", pokiMg)              
+    // sprite, name and number table
 
-    $("#PokiMg").append(im)
+    let sprite = pokemonResults.sprites.front_default;
+    let shiny = pokemonResults.sprites.front_shiny;
+    let name = pokemonResults.name;
+    let number = pokemonResults.id;
+    let type = pokemonResults.types[0].type.name;
+
+    let theRow1 = $("<tr>");
+    let theRow2 = $("<tr>");
+
+    let pokeSprite = $("<img>")
+      .attr("src", sprite)
+      .addClass("pokeSprite");
+
+    let pokeShiny = $("<img>")
+    .attr("src", shiny)
+    .addClass("pokeSprite");
+
+    let pokeImage = $("<td>").addClass("tRow").html(pokeSprite);
+    let pokeImageShiny = $("<td>").addClass("tRow").html(pokeShiny);    
+    let pokeName = $("<td>").text(name);
+    let pokeNumber = $("<td>").text(number);
+
+    theRow1.append(pokeImage, pokeImageShiny);
+    theRow2.append(pokeNumber, pokeName);
+
+    theRow1.appendTo("#photo");
+    theRow2.appendTo("#discovered");
+
+    // attack, height and weight table
+
+    let attack = pokemonResults.moves[0].move.name;
+    let height = pokemonResults.height;
+    let weight = pokemonResults.weight;
+
+    let theRow3 = $("<tr>");
+
+    let pokeAttack = $("<td>").text(attack);
+    let pokeHeight = $("<td>").text(height);
+    let pokeWeight = $("<td>").text(weight);
+
+    theRow3.append(pokeAttack, pokeHeight, pokeWeight);
+
+    theRow3.appendTo("#stats");
+
+    let isBoosted = "No";
+
+    if (weatherConditions[theWeatherCondition].indexOf(type) > -1) isBoosted = "Yes";
     
-    isWeatherBoosted(typing)
+    let theRow4 = $("<tr>");   
+    let pokeType = $("<td>").text(type);
+    let boosted = $("<td>").text(isBoosted);
 
-  })
+    theRow4.append(pokeType, boosted);
+    theRow4.appendTo("#type");
+
+    //need data to save to local storage
+
+    // localStorage.setItem("dexEntry", number);
+    // localStorage.setItem("name", name)
+    // localStorage.setItem("type", type )
+    // localStorage.setItem("sprite", sprite )
+    // localStorage.setItem("weatherBoosted", isBoosted)
+
+    // let theRow = $("<tr>");
+
+    // let storedDex = $("<td>").html(localStorage.getItem("dexEntry", number));
+    // let storedName = $("<td>").html(localStorage.getItem("name", name));
+    // let storedType = $("<td>").html(localStorage.getItem("type", type ));
+    // let storedSprite = $("<td>").html(localStorage.getItem("sprite", sprite));
+    // let storedBoosted = $("<td>").html(localStorage.getItem("weatherBoosted", isBoosted));
+
+    // let storedImage = $("<img>")
+    // .attr("src", storedSprite)
+    // .addClass("pokeSprite");
+
+    //   theRow.append(storedImage, storedDex, storedName , storedType , storedBoosted );
+    //   theRow.appendTo("#saved");
+  });
 }
-
-
-function isWeatherBoosted(type) {
-
-  let code = temp2
-  let pokemonType = type;
-  console.log(code)
-  console.log(pokemonType)
-
-
-  const weatherType = {
-      "sunny": ["fire", "grass", "ground"],
-      "partly cloudy": ["normal", "rock"],
-      "cloudy": ["fairy", "fighting", "poison"],
-      "rainy": ["water", "electric", "bug"],
-      "snowy": ["ice", "steel"],
-      "foggy": ["dark", "ghost"],
-      "windy": ["dragon", "flying", "psychic"]
-  }
-
-  const weatherCodes = {
-      200: "rainy", 
-      202: "rainy",
-      201: "rainy",
-      200: "rainy",
-      230: "rainy",
-      231: "rainy",
-      232: "rainy",
-      233: "rainy",
-      300: "rainy",
-      301: "rainy",
-      302: "rainy",
-      500: "rainy",
-      501: "rainy",
-      502: "rainy",
-      511: "rainy",
-      520: "rainy",
-      521: "rainy",
-      522: "rainy",
-      600: "snowy",
-      601: "snowy",
-      602: "snowy",
-      610: "snowy",
-      611: "snowy",
-      612: "snowy",
-      621: "snowy",
-      622: "snowy",
-      623: "snowy",
-      700: "foggy",
-      711: "foggy",
-      721: "foggy",
-      731: "foggy",
-      741: "foggy",
-      751: "foggy",
-      800: "sunny",
-      801: "partly cloudy",
-      802: "partly cloudy",
-      803: "windy",
-      804: "windy",
-      900: "rainy",
-
-  }
-
-  let boosted = isBoosted(code, pokemonType)
-  console.log(boosted);
-
-  function isBoosted(code, type) {
-      if (weatherType[weatherCodes[code]].indexOf(pokemonType) > -1) {
-        console.log("boosted")
-          return true
-      } else {
-        console.log("not boosted")
-          return false
-      }
-  }
-
-    
-  }
