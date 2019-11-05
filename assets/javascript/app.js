@@ -1,7 +1,8 @@
 getLocation()
+// $(".startUp").hide()
+// $(".theDex").hide()
 
 let theWeatherCondition = "unknown"
-let addPokemon = false
 
 const weatherCodes = {
     200: "rainy", 
@@ -45,6 +46,27 @@ const weatherCodes = {
     900: "rainy",
 }
 
+const thePokeTypeFavorableWeather = {
+    "fire": "sunny",
+    "grass": "sunny",
+    "ground": "sunny",
+    "normal": "partly cloudy",
+    "rock": "partly cloudy",
+    "fairy": "cloudy",
+    "fighting": "cloudy",
+    "poison": "cloudy",
+    "water": "rainy",
+    "electric": "rainy",
+    "bug": "rainy",
+    "ice": "snowy",
+    "steel": "snowy",
+    "dark": "foggy",
+    "ghost": "foggy",
+    "dragon": "windy",
+    "flying": "windy",
+    "psychic": "windy",
+}
+
 const weatherConditions = {
     "sunny": ["fire", "grass", "ground"],
     "partly cloudy": ["normal", "rock"],
@@ -64,8 +86,8 @@ $("#submitBtn").on("click", function(event) {
     console.log(userInput)
     getPokemon(userInput)
     $("#search").val("")
-
 })
+
 
 function getLocation() {
 
