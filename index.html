@@ -8,6 +8,7 @@
   <!-- reset.css file that may need to be added to css folder -->
   <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/style2.css" type="text/css">
 
   <!-- jQuery CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -15,8 +16,9 @@
   <!-- Compiled and minified CSS for Materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8&callback=initMap"
-  type="text/javascript"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8&callback=initMap"
+    type="text/javascript"></script>
 
   <!-- choreographer cdn -->
   <!-- <script src="https://christinecha.github.io/choreographer-js/dist/choreographer.min.js"></script> -->
@@ -33,99 +35,150 @@
 <body>
 
   <div class="container">
-    <div class="card jumbo">
-      <img src="assets/images/Screen Shot 2019-11-02 at 11.57.46 AM.png">
-    </div>
-    <nav>
-      <div class="nav-wrapper">
-        <form>
-          <div class="input-field">
-            <input id="search" id="userInput" type="search">
-            <label class="label-icon" id="submitBtn" for="search"><i class="material-icons">search</i></label>
-            <p>To access the bootstrap version of this, <a href="bootstrap.html">click here</a>.</p>
-            <p id="location"></p>
-            <p id="weather"></p>
-          </div>
-        </form>
+    <div class="row text-center">
+      <div class="col-sm">
+
+        <div class="jumbotron">
+
+          <div><img src="assets/images/pokedex_banner.png" class="img-fluid" alt="Responsive image"></div>
+          <hr class="my-4">
+        </div>
+
       </div>
-    </nav>
+    </div>
 
     <div class="row">
-      <div class="col s6">
 
-        <div class="card horizontal">
-          <div class="card-image" id="PokiMg">
+      <div class="col-sm">
+        <div class="card employee-card">
+          <div class="card-body">
+            <input type="text" id="search" autocomplete="off" class="autocomplete"></p>
+            <a id="submitBtn" class="btn btn-primary btn-lg" role="submit">Get That Pokemon!</a>
           </div>
         </div>
       </div>
 
-      <div class="col s6">
-        <h4>Types</h4>
-
-        <button class="btn waves-effect one" type="text" name="action">FIRE</button>
-        <button class="btn waves-effect two" type="text" name="action">GRASS</button>
-      </div>
-
-      <div class="row">
-        <div class="col s6">
-          <div class="card horizontal" id="attributes">
-            <div class="col s12">
-              
-              <table action="/action_page.php">
-                <p>Height: <span type="text" id="height" name="height"></span><br></p>
-                <p>Weight: <span type="text" id="weight" name="weight"></span><br></p>
-              </table>
-
-            </div>
-
+      <div class="col-sm">
+        <div class="card employee-card">
+          <div class="card-body">
+            <p id="location"></p>
+            <p id="weather"></p>
+            <p id="update"></p>
           </div>
-
-
         </div>
-        <div class="col s6">
+      </div>
+    </div>
 
-          <div class="card horizontal">
-            <div class="card-image">
-              <img src="assets/images/placeholder.png">
-            </div>
+    <div class="row mt-3 startUp">
 
+      <div class="col-sm">
+        <div class="card employee-card">
+          <div class="card-body">
+            <table class="table text-center align-middle">
+              <thead>
+                <tr>
+                  <th scope="col"><b>PokeDex Entry</b></th>
+                  <th scope="col"><b>Name</b></th>
+                </tr>
+              </thead>
+              <tbody id="discovered">
+                </tr>
+              </tbody>
+            </table>
           </div>
-
-
-
-
-        </div>
-
-
-
-      </div>
-
-      <div class="card captured">
-        <h5 class="card-header">Captured List</h5>
-        <div class="card-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Dex Number</th>
-                <th scope="col">Sprite</th>
-                <th scope="col">Name</th>
-                <th scope="col">Type</th>
-                <th scope="col">Height</th>
-                <th scope="col">Weight</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
         </div>
       </div>
 
+      <div class="col-sm">
+        <div class="card employee-card">
+          <div class="card-body">
+            <table class="table text-center align-middle">
+              <thead>
+                <tr>
+                  <th scope="col"><b>Non-shiny</b></th>
+                  <th scope="col"><b>Shiny</b></th>
+                </tr>
+              </thead>
+              <tbody id="photo">
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
+      <div class="col-sm">
+        <div class="card employee-card">
+          <div class="card-body">
+            <table class="table text-center align-middle">
+              <thead>
+                <tr>
+                  <th scope="col"><b>Attack</b></th>
+                  <th scope="col"><b>Height</b></th>
+                  <th scope="col"><b>Weight</b></th>
+                </tr>
+              </thead>
+              <tbody id="stats">
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
     </div>
 
-    <script src="assets/javascript/app.js" type="text/javascript"></script>
-    <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
+
+    <div class="row mt-3 startUp">
+      <div class="col-sm">
+        <div class="card employee-card">
+          <div class="card-body">
+            <table class="table text-center align-middle">
+              <thead>
+                <tr>
+                  <th scope="col"><b>Pokemon Type</b></th>
+                  <th scope="col"><b>Performs Best In</b></th>
+                  <th scope="col"><b>Is it Weather Boosted?</b></th>
+                </tr>
+              </thead>
+              <tbody id="type">
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3 theDex">
+      <div class="col-sm">
+        <div class="card employee-card">
+          <div class="card-body">
+            <table class="table text-center align-middle">
+              <thead>
+                <tr>
+                  <th scope="col"><b>Sprite</b></th>
+                  <th scope="col"><b>PokeDex Entry</b></th>
+                  <th scope="col"><b>Name</b></th>
+                  <th scope="col"><b>Type</b></th>
+                  <th scope="col"><b>Weather Boosted?</b></th>
+                </tr>
+              </thead>
+              <tbody id="saved">
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="assets/javascript/pokemon_names.js" type="text/javascript"></script>
+  <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
+  <script src="assets/javascript/app.js" type="text/javascript"></script>
+
 </body>
 
 </html>
