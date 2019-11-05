@@ -1,3 +1,17 @@
+let thePokeDex = []
+let seconds = 10
+
+let dexRefresh = setInterval(timerUpdate, 1000)
+
+var firebaseConfig = {
+    apiKey: "AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8",
+    databaseURL: "https://pokedex-4f772.firebaseio.com",
+  };
+
+firebase.initializeApp(firebaseConfig);
+
+let database = firebase.database();
+
 function getPokemon(poke) {
   
   $("tbody").empty()
@@ -11,15 +25,7 @@ function getPokemon(poke) {
   }).then(function(response) {
     console.log(response);
 
-    let pokemonResults = response;
-      
-    console.log(pokemonResults.name);
-    console.log(pokemonResults.types[0].type.name);
-    console.log(pokemonResults.sprites.front_default);
-    console.log(pokemonResults.id);
-    console.log(pokemonResults.height);
-    console.log(pokemonResults.weight);
-    console.log(pokemonResults.sprites.front_default);
+    let pokemonResults = response; 
 
     // sprite, name and number table
 
@@ -79,27 +85,78 @@ function getPokemon(poke) {
     theRow4.append(pokeType, pokeWeather, boosted);
     theRow4.appendTo("#type");
 
-    //need data to save to local storage
-
-    // localStorage.setItem("dexEntry", number);
-    // localStorage.setItem("name", name)
-    // localStorage.setItem("type", type )
-    // localStorage.setItem("sprite", sprite )
-    // localStorage.setItem("weatherBoosted", isBoosted)
-
-    // let theRow = $("<tr>");
-
-    // let storedDex = $("<td>").html(localStorage.getItem("dexEntry", number));
-    // let storedName = $("<td>").html(localStorage.getItem("name", name));
-    // let storedType = $("<td>").html(localStorage.getItem("type", type ));
-    // let storedSprite = $("<td>").html(localStorage.getItem("sprite", sprite));
-    // let storedBoosted = $("<td>").html(localStorage.getItem("weatherBoosted", isBoosted));
-
-    // let storedImage = $("<img>")
-    // .attr("src", storedSprite)
-    // .addClass("pokeSprite");
-
-    //   theRow.append(storedImage, storedDex, storedName , storedType , storedBoosted );
-    //   theRow.appendTo("#saved");
+    database.ref().push({
+      sprite: sprite,
+      number: number,
+      name: name,
+      type: type,
+    })
   });
+}
+
+database.ref().on("child_added", function(snapshot){
+        
+  thePokeDex.push(snapshot.val())
+  processPokeDex()
+  // console.log(snapshot.val())
+  // console.log(thePokeDex)
+  
+})
+
+function processPokeDex() {
+
+  $("#saved").empty()
+
+  for (let i = 0; i < thePokeDex.length; i++ ) {
+    let sv = thePokeDex[i]
+
+    console.log(sv)
+    
+    let sprite = sv.sprite
+    let number = sv.number
+    let name = sv.name
+    let type = sv.type
+
+    let theImage = $("<img>")
+    .attr("src", sprite)
+    .addClass("pokeSprite");
+
+    let isBoosted = "No";
+
+    if (weatherConditions[theWeatherCondition].indexOf(type) > -1) isBoosted = "Yes";
+
+    let tRow = $("<tr>")
+
+    let theSprite = $("<td>").html(theImage)
+    let theNumber = $("<td>").text(number)
+    let theName = $("<td>").text(name)
+    let theType = $("<td>").text(type)
+    let boosted = $("<td>").text(isBoosted);
+
+    tRow.append(theSprite, theNumber, theName, theType, boosted)
+
+    $("#saved").prepend(tRow)
+
+    console.log("this is the end")
+  }
+}
+
+function timerUpdate() {
+
+  seconds--
+
+  $("#update").text(`Next update in ${seconds} Seconds`)
+
+  if (seconds === 1) {
+    $("#update").text(`Next update in ${seconds} Second`)
+  }
+
+  if (seconds === 0) {
+    $("#update").text(`Updating Location and Weather Boosted Stats.`)
+      seconds = 10
+      getLocation()
+      processPokeDex()
+
+  }
+  
 }
