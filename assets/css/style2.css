@@ -14,6 +14,11 @@ body {
     padding: 100px;
 }
 
+#submitBtn {
+    display: inline;
+}
+
+
 /* autocomplete */
 
 .autocomplete {

@@ -60,6 +60,10 @@ function getPokemon(poke) {
     // attack, height and weight table
 
     let attack = pokemonResults.moves[0].move.name;
+
+    if (attack.includes("-")) attack = attack.replace("-", " ")
+  
+
     let height = pokemonResults.height;
     let weight = pokemonResults.weight;
 
@@ -79,11 +83,13 @@ function getPokemon(poke) {
     
     let theRow4 = $("<tr>");   
     let pokeType = $("<td>").text(type);
-    let pokeWeather =$("<td>").text("This feature is coming soon!");
+    let pokeWeather =$("<td>").text(`${thePokeTypeFavorableWeather[type]} weather`);
     let boosted = $("<td>").text(isBoosted);
 
     theRow4.append(pokeType, pokeWeather, boosted);
     theRow4.appendTo("#type");
+
+    $(".startUp").show()
 
     database.ref().push({
       sprite: sprite,
@@ -152,9 +158,9 @@ function timerUpdate() {
   }
 
   if (seconds === 0) {
-    $("#update").text(`Updating Location and Weather Boosted Stats.`)
+    $("#update").text(`Please Wait: Updating Location and Weather Boosted Stats.`)
       seconds = 10
-      getLocation()
+      // getLocation()
       processPokeDex()
 
   }
