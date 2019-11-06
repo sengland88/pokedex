@@ -1,5 +1,7 @@
-let thePokeDex = []
+let thePokeDex = JSON.parse(localStorage.getItem("thePokeDex")) || [];
 let seconds = 10
+
+// getLocation()
 
 let dexRefresh = setInterval(timerUpdate, 1000)
 
@@ -28,15 +30,6 @@ function getPokemon(poke) {
     method: "GET",
     error: errorHandling
   }).then(function(response) {
-    // console.log(response);
-
-    //check to see if the value exists
-    // console.log(response.name)
-    // console.log("-1-1-1-1-1-1--1-1-1-1-1")
-
-    // if (!response.name) {
-    //   console.log("not found!!!!!!!!!")
-    // }
 
     let pokemonResults = response; 
 
@@ -103,23 +96,15 @@ function getPokemon(poke) {
 
     $(".startUp").show()
 
-    database.ref().push({
-      sprite: sprite,
+    thePokeDex.push({      
       number: number,
-      name: name,
-      type: type,
+      name: name,   
+      sprite: sprite,
+      type: type,  
     })
+    localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
   });
 }
-
-database.ref().on("child_added", function(snapshot){
-        
-  thePokeDex.push(snapshot.val())
-  processPokeDex()
-  // console.log(snapshot.val())
-  // console.log(thePokeDex)
-  
-})
 
 function processPokeDex() {
 
@@ -139,25 +124,41 @@ function processPokeDex() {
     .attr("src", sprite)
     .addClass("pokeSprite");
 
+    var button = $("<button>");
+
+    button.attr("logPokemon", i);
+    button.addClass("pokeButton")
+    button.text("X");
+
     let isBoosted = "No";
 
     if (weatherConditions[theWeatherCondition].indexOf(type) > -1) isBoosted = "Yes";
 
     let tRow = $("<tr>")
 
+    let theButton = $("<td>").html(button)
     let theSprite = $("<td>").html(theImage)
     let theNumber = $("<td>").text(number)
     let theName = $("<td>").text(name)
     let theType = $("<td>").text(type)
     let boosted = $("<td>").text(isBoosted);
 
-    tRow.append(theSprite, theNumber, theName, theType, boosted)
+    tRow.append(theButton, theSprite, theNumber, theName, theType, boosted)
 
     $("#saved").prepend(tRow)
 
     console.log("this is the end")
   }
 }
+
+$(document).on("click", ".pokeButton", function() {
+  let theClicked = $(this).attr("logPokemon");
+  console.log(theClicked)
+  thePokeDex.splice(theClicked, 1);
+  processPokeDex(thePokeDex)  
+  localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
+
+});
 
 function timerUpdate() {
 
@@ -176,5 +177,7 @@ function timerUpdate() {
       processPokeDex()
 
   }
-  
+
 }
+
+processPokeDex()
