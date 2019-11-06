@@ -12,17 +12,12 @@
   <!-- jQuery CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- Compiled and minified CSS for Materialize
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-
   <!-- bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
 
+  <!-- google maps authentication -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8&callback=initMap"
   type="text/javascript"></script>
-
-  <!-- choreographer cdn -->
-  <!-- <script src="https://christinecha.github.io/choreographer-js/dist/choreographer.min.js"></script> -->
 
   <!-- geolocation cdn -->
   <script src="https://w3c.github.io/geolocation-api/"></script>
@@ -31,12 +26,32 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
+  <!-- anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 </head>
 
 <body>
 
     <div class="container">
-        <div class="row text-center">
+
+        <div class="row text-center mt-2">
+                <div class="col-sm">
+
+                        <div class="card employee-card">
+                                <div class="card-body">
+                                    <h1 class="ml11">
+                                        <span class="text-wrapper">
+                                            <span class="line line1"></span>
+                                            <span class="letters">Pokemon PokeDex</span>
+                                        </span>
+                                    </h1>                                    
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <div class="row text-center mt-2 startUp">
             <div class="col-sm">
                 
                 <div class="jumbotron">
@@ -48,7 +63,7 @@
             </div>
         </div>
 
-        <div class="row">           
+        <div class="row startUp">           
 
                 <div class="col-sm">
                     <div class="card employee-card">

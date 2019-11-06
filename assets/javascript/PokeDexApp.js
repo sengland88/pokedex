@@ -12,6 +12,10 @@ firebase.initializeApp(firebaseConfig);
 
 let database = firebase.database();
 
+function errorHandling() {
+  console.log("this doesn't work")
+}
+
 function getPokemon(poke) {
   
   $("tbody").empty()
@@ -21,9 +25,18 @@ function getPokemon(poke) {
 
   $.ajax({
     url: pokemonURL,
-    method: "GET"
+    method: "GET",
+    error: errorHandling
   }).then(function(response) {
-    console.log(response);
+    // console.log(response);
+
+    //check to see if the value exists
+    // console.log(response.name)
+    // console.log("-1-1-1-1-1-1--1-1-1-1-1")
+
+    // if (!response.name) {
+    //   console.log("not found!!!!!!!!!")
+    // }
 
     let pokemonResults = response; 
 
@@ -61,8 +74,7 @@ function getPokemon(poke) {
 
     let attack = pokemonResults.moves[0].move.name;
 
-    if (attack.includes("-")) attack = attack.replace("-", " ")
-  
+    if (attack.includes("-")) attack = attack.replace("-", " ")  
 
     let height = pokemonResults.height;
     let weight = pokemonResults.weight;
