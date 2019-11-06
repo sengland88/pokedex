@@ -5,7 +5,7 @@ getLocation()
 let theWeatherCondition = "unknown"
 
 const weatherCodes = {
-    200: "rainy", 
+    200: "rainy",
     202: "rainy",
     201: "rainy",
     200: "rainy",
@@ -83,11 +83,12 @@ $("#submitBtn").on("click", function(event) {
     event.preventDefault()
     
     let userInput = $("#search").val().trim().toLowerCase()
+
+    if (userInput.includes(" ")) userInput = userInput.replace(" ", "-")
     console.log(userInput)
     getPokemon(userInput)
     $("#search").val("")
 })
-
 
 function getLocation() {
 
