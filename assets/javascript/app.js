@@ -2,6 +2,10 @@ getLocation()
 // $(".startUp").hide()
 // $(".theDex").hide()
 
+$(document).ready(function() {
+    $("#saved").DataTable();
+});
+
 let theWeatherCondition = "unknown"
 
 const weatherCodes = {
@@ -88,6 +92,7 @@ $("#submitBtn").on("click", function(event) {
     console.log(userInput)
     getPokemon(userInput)
     $("#search").val("")
+    processPokeDex()
 })
 
 function getLocation() {
@@ -134,3 +139,4 @@ function getWeather(lat , lon) {
 
     })
 }
+
