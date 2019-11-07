@@ -1,6 +1,7 @@
 body {
   background-image: url("../images/background2.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   font-family: 'Oswald', sans-serif;;
 }
 
@@ -121,6 +122,8 @@ perspective: 2px;
 position: relative;
 height: 75vh;
 }
+
+/* parallax */
 
 .parallax::after {
 content: " ";
