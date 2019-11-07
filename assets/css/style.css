@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'oswald';
     background-image: url("http://i.imgur.com/VW2DYbL.png");
     background-size: cover;
@@ -45,17 +45,36 @@ img {
 h5 {
     font-family: 'oswald';
 }
-#submitBtn {
-    background-color:#F58E77;
-    font-size: 20px;
-
-}
-.jumbotron {
-    margin-top: 5%;
-}
 
 .card-body { 
-    
-    background-color:#C78638;
-
+background-color:#C78638;
 }
+
+.img-fluid {
+    margin-right: 40%;
+}
+
+.wrapper {
+height: 100vh;
+overflow-x: hidden;
+overflow-y: auto;
+perspective: 2px;
+}
+
+.section {
+position: relative;
+height: 75vh;
+}
+    
+    
+.parallax::after {
+content: " ";
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+transform: translateZ(-1px) scale(1.5);
+background-size: 100%;
+z-index: -1;
+} */
