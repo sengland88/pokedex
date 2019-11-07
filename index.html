@@ -5,6 +5,9 @@
 
   <title>Poke Dex</title>
 
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
+
   <!-- reset.css file that may need to be added to css folder -->
   <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
@@ -33,147 +36,165 @@
 </head>
 
 <body>
+  <main class="wrapper">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col s12">
 
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-sm">
+          <div class="jumbotron">
 
-        <div class="jumbotron">
+            <div><img src="assets/images/pokedex_banner.png" class="img-fluid" alt="Responsive image"></div>
+            <hr class="my-4">
+          </div>
 
-          <div><img src="assets/images/pokedex_banner.png" class="img-fluid" alt="Responsive image"></div>
-          <hr class="my-4">
+        </div>
+      </div>
+      <section class="section parallax bg1">
+        <div class="row">
+
+          <div class="col l5 col s12">
+            <div class="card employee-card">
+              <div class="card-body">
+                <input type="text" id="search" autocomplete="off" class="autocomplete"
+                  placeholder=" type pokemon name or ID here"></p>
+                <a id="submitBtn" class="btn btn-primary btn-lg" role="submit">Get That Pokemon!</a>
+                <!--submitbtn-->
+              </div>
+            </div>
+          </div>
+
+          <div class="col l5 col s12">
+            <div class="card employee-card stats">
+              <div class="card-body">
+                <p id="location"></p>
+                <br>
+                <p id="weather"></p>
+                <br>
+                <p id="update"></p>
+                <!--location weather update-->
+              </div>
+            </div>
+          </div>
         </div>
 
-      </div>
+
+        <div class="row mt-3 startUp">
+          <!-- startUp -->
+
+          <div class="col l6 col s12">
+            <div class="card employee-card">
+              <div class="card-body">
+                <table class="table text-center align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col"><b>PokeDex Entry</b></th>
+                      <th scope="col"><b>Name</b></th>
+                    </tr>
+                  </thead>
+                  <tbody id="discovered">
+                    <!-- discovered -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!--changed column size to fit mobile-->
+          <div class="col l6 col s12">
+            <div class="card employee-card">
+              <div class="card-body moreShine">
+                <table class="table text-center align-middle shine">
+                  <thead>
+                    <tr>
+                      <th scope="col"><b>Non-shiny</b></th>
+                      <th scope="col"><b>Shiny</b></th>
+                    </tr>
+                  </thead>
+                  <tbody id="photo">
+                    <!-- photo -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col l6 col s12">
+            <div class="card employee-card">
+              <div class="card-body">
+                <table class="table text-center align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col"><b>Attack</b></th>
+                      <th scope="col"><b>Height</b></th>
+                      <th scope="col"><b>Weight</b></th>
+                    </tr>
+                  </thead>
+                  <tbody id="stats">
+                    <!-- stats -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        
+
+        <!--startup-->
+        <div class="row mt-3 startUp">
+          <div class="col l6 col s12">
+            <div class="card employee-card">
+              <div class="card-body">
+                <table class="table text-center align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col"><b>Pokemon Type</b></th>
+                      <th scope="col"><b>Performs Best In</b></th>
+                      <th scope="col"><b>Is it Weather Boosted?</b></th>
+                    </tr>
+                  </thead>
+                  <tbody id="type">
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+           
+
+        <!-- thedex -->
+        <div class="row mt-3 theDex">
+          <div class="col s12">
+            <div class="card employee-card">
+              <div class="card-body">
+                <table class="table text-center align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col"><b>Sprite</b></th>
+                      <th scope="col"><b>PokeDex Entry</b></th>
+                      <th scope="col"><b>Name</b></th>
+                      <th scope="col"><b>Type</b></th>
+                      <th scope="col"><b>Weather Boosted?</b></th>
+                    </tr>
+                  </thead>
+                  <tbody id="saved">
+                    <!-- saved -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
     </div>
-
-    <div class="row">
-
-      <div class="col-sm">
-        <div class="card employee-card">
-          <div class="card-body">
-            <input type="text" id="search" autocomplete="off" class="autocomplete"></p>
-            <a id="submitBtn" class="btn btn-primary btn-lg" role="submit">Get That Pokemon!</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm">
-        <div class="card employee-card">
-          <div class="card-body">
-            <p id="location"></p>
-            <p id="weather"></p>
-            <p id="update"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mt-3 startUp">
-
-      <div class="col-sm">
-        <div class="card employee-card">
-          <div class="card-body">
-            <table class="table text-center align-middle">
-              <thead>
-                <tr>
-                  <th scope="col"><b>PokeDex Entry</b></th>
-                  <th scope="col"><b>Name</b></th>
-                </tr>
-              </thead>
-              <tbody id="discovered">
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm">
-        <div class="card employee-card">
-          <div class="card-body">
-            <table class="table text-center align-middle">
-              <thead>
-                <tr>
-                  <th scope="col"><b>Non-shiny</b></th>
-                  <th scope="col"><b>Shiny</b></th>
-                </tr>
-              </thead>
-              <tbody id="photo">
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm">
-        <div class="card employee-card">
-          <div class="card-body">
-            <table class="table text-center align-middle">
-              <thead>
-                <tr>
-                  <th scope="col"><b>Attack</b></th>
-                  <th scope="col"><b>Height</b></th>
-                  <th scope="col"><b>Weight</b></th>
-                </tr>
-              </thead>
-              <tbody id="stats">
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="row mt-3 startUp">
-      <div class="col-sm">
-        <div class="card employee-card">
-          <div class="card-body">
-            <table class="table text-center align-middle">
-              <thead>
-                <tr>
-                  <th scope="col"><b>Pokemon Type</b></th>
-                  <th scope="col"><b>Performs Best In</b></th>
-                  <th scope="col"><b>Is it Weather Boosted?</b></th>
-                </tr>
-              </thead>
-              <tbody id="type">
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mt-3 theDex">
-      <div class="col-sm">
-        <div class="card employee-card">
-          <div class="card-body">
-            <table class="table text-center align-middle">
-              <thead>
-                <tr>
-                  <th scope="col"><b>Sprite</b></th>
-                  <th scope="col"><b>PokeDex Entry</b></th>
-                  <th scope="col"><b>Name</b></th>
-                  <th scope="col"><b>Type</b></th>
-                  <th scope="col"><b>Weather Boosted?</b></th>
-                </tr>
-              </thead>
-              <tbody id="saved">
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
+    </section>
+  </main>
 
   <script src="assets/javascript/pokemon_names.js" type="text/javascript"></script>
   <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
