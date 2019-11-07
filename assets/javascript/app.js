@@ -97,7 +97,7 @@ $("#submitBtn").on("click", function(event) {
     let userInput = $("#search").val().trim().toLowerCase()
 
     if (userInput === "") {
-        console.log("you need to type something in.")
+        $("#emptySearch").modal('show')
         return
     }
 
