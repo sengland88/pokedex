@@ -1,4 +1,13 @@
 getLocation()
+$(".startUp").hide()
+$(".theDex").hide()
+
+$("#activateDex").on("click", function() {
+  $(".theMessage").hide()
+  $(".startUp").show()
+  $(".theDex").show()
+})
+
 
 let theWeatherCondition = "unknown"
 
@@ -205,7 +214,7 @@ function errorHandling() {
       let pokeImage = $("<td>").addClass("tRow").html(pokeSprite);
       let pokeImageShiny = $("<td>").addClass("tRow").html(pokeShiny);    
       let pokeName = $("<td>").text(name);
-      let pokeNumber = $("<td>").text(number);
+      let pokeNumber = $("<td>").text(`# ${number}`);
   
       theRow1.append(pokeImage, pokeImageShiny);
       theRow2.append(pokeNumber, pokeName);
@@ -219,14 +228,14 @@ function errorHandling() {
   
       if (attack.includes("-")) attack = attack.replace("-", " ")  
   
-      let height = pokemonResults.height;
-      let weight = pokemonResults.weight;
+      let height = pokemonResults.height * Math.floor(3.937)
+      let weight = pokemonResults.weight / Math.floor(4.536) 
   
       let theRow3 = $("<tr>");
   
       let pokeAttack = $("<td>").text(attack);
-      let pokeHeight = $("<td>").text(height);
-      let pokeWeight = $("<td>").text(weight);
+      let pokeHeight = $("<td>").text(`${height}"`);
+      let pokeWeight = $("<td>").text(`${weight} lbs`);
   
       theRow3.append(pokeAttack, pokeHeight, pokeWeight);
   
@@ -290,7 +299,7 @@ function errorHandling() {
   
       let theButton = $("<td>").html(button)
       let theSprite = $("<td>").html(theImage)
-      let theNumber = $("<td>").text(number)
+      let theNumber = $("<td>").text(`# ${number}`)
       let theName = $("<td>").text(name)
       let theType = $("<td>").text(type)
       let boosted = $("<td>").text(isBoosted);
@@ -326,5 +335,14 @@ function errorHandling() {
     }
      
   }
+  
+function myFunction() {
+  var x = $("#myDIV")
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
   
   processPokeDex()  
