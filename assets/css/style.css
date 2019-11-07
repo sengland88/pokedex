@@ -1,7 +1,9 @@
 body {
+    font-family: 'oswald';
     background-image: url("http://i.imgur.com/VW2DYbL.png");
     background-size: cover;
     background-repeat: no-repeat;
+    text-transform: uppercase;
 }
 .border-radius {
     border-radius: 25px;
@@ -38,4 +40,22 @@ img {
 }
 .btn.waves-effect.two {
     background-color: green;
+}
+
+h5 {
+    font-family: 'oswald';
+}
+#submitBtn {
+    background-color:#F58E77;
+    font-size: 20px;
+
+}
+.jumbotron {
+    margin-top: 5%;
+}
+
+.card-body { 
+    
+    background-color:#C78638;
+
 }
