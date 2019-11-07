@@ -1,183 +1,166 @@
-let thePokeDex = JSON.parse(localStorage.getItem("thePokeDex")) || [];
-let seconds = 10
+// function errorHandling() {
+//   console.log("this doesn't work")
+// }
 
-// getLocation()
-
-let dexRefresh = setInterval(timerUpdate, 1000)
-
-var firebaseConfig = {
-    apiKey: "AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8",
-    databaseURL: "https://pokedex-4f772.firebaseio.com",
-  };
-
-firebase.initializeApp(firebaseConfig);
-
-let database = firebase.database();
-
-function errorHandling() {
-  console.log("this doesn't work")
-}
-
-function getPokemon(poke) {
+// function getPokemon(poke) {
   
-  $("tbody").empty()
+//   $("tbody").empty()
 
-  let thePokemon = poke;
-  let pokemonURL = "https://pokeapi.co/api/v2/pokemon/" + thePokemon;
+//   let thePokemon = poke;
+//   let pokemonURL = "https://pokeapi.co/api/v2/pokemon/" + thePokemon;
 
-  $.ajax({
-    url: pokemonURL,
-    method: "GET",
-    error: errorHandling
-  }).then(function(response) {
+//   $.ajax({
+//     url: pokemonURL,
+//     method: "GET",
+//     error: errorHandling
+//   }).then(function(response) {
 
-    let pokemonResults = response; 
+//     let pokemonResults = response; 
 
-    // sprite, name and number table
+//     // sprite, name and number table
 
-    let sprite = pokemonResults.sprites.front_default;
-    let shiny = pokemonResults.sprites.front_shiny;
-    let name = pokemonResults.name;
-    let number = pokemonResults.id;
-    let type = pokemonResults.types[0].type.name;
+//     let sprite = pokemonResults.sprites.front_default;
+//     let shiny = pokemonResults.sprites.front_shiny;
+//     let name = pokemonResults.name;
+//     let number = pokemonResults.id;
+//     let type = pokemonResults.types[0].type.name;
 
-    let theRow1 = $("<tr>");
-    let theRow2 = $("<tr>");
+//     if (name.includes("-")) name = name.replace("-", " ")  
 
-    let pokeSprite = $("<img>")
-      .attr("src", sprite)
-      .addClass("pokeSprite");
+//     let theRow1 = $("<tr>");
+//     let theRow2 = $("<tr>");
 
-    let pokeShiny = $("<img>")
-    .attr("src", shiny)
-    .addClass("pokeSprite");
+//     let pokeSprite = $("<img>")
+//       .attr("src", sprite)
+//       .addClass("pokeSprite");
 
-    let pokeImage = $("<td>").addClass("tRow").html(pokeSprite);
-    let pokeImageShiny = $("<td>").addClass("tRow").html(pokeShiny);    
-    let pokeName = $("<td>").text(name);
-    let pokeNumber = $("<td>").text(number);
+//     let pokeShiny = $("<img>")
+//     .attr("src", shiny)
+//     .addClass("pokeSprite");
 
-    theRow1.append(pokeImage, pokeImageShiny);
-    theRow2.append(pokeNumber, pokeName);
+//     let pokeImage = $("<td>").addClass("tRow").html(pokeSprite);
+//     let pokeImageShiny = $("<td>").addClass("tRow").html(pokeShiny);    
+//     let pokeName = $("<td>").text(name);
+//     let pokeNumber = $("<td>").text(number);
 
-    theRow1.appendTo("#photo");
-    theRow2.appendTo("#discovered");
+//     theRow1.append(pokeImage, pokeImageShiny);
+//     theRow2.append(pokeNumber, pokeName);
 
-    // attack, height and weight table
+//     theRow1.appendTo("#photo");
+//     theRow2.appendTo("#discovered");
 
-    let attack = pokemonResults.moves[0].move.name;
+//     // attack, height and weight table
 
-    if (attack.includes("-")) attack = attack.replace("-", " ")  
+//     let attack = pokemonResults.moves[0].move.name;
 
-    let height = pokemonResults.height;
-    let weight = pokemonResults.weight;
+//     if (attack.includes("-")) attack = attack.replace("-", " ")  
 
-    let theRow3 = $("<tr>");
+//     let height = pokemonResults.height;
+//     let weight = pokemonResults.weight;
 
-    let pokeAttack = $("<td>").text(attack);
-    let pokeHeight = $("<td>").text(height);
-    let pokeWeight = $("<td>").text(weight);
+//     let theRow3 = $("<tr>");
 
-    theRow3.append(pokeAttack, pokeHeight, pokeWeight);
+//     let pokeAttack = $("<td>").text(attack);
+//     let pokeHeight = $("<td>").text(height);
+//     let pokeWeight = $("<td>").text(weight);
 
-    theRow3.appendTo("#stats");
+//     theRow3.append(pokeAttack, pokeHeight, pokeWeight);
 
-    let isBoosted = "No";
+//     theRow3.appendTo("#stats");
 
-    if (weatherConditions[theWeatherCondition].indexOf(type) > -1) isBoosted = "Yes";
+//     let isBoosted = "No";
+
+//     if (weatherConditions[theWeatherCondition].indexOf(type) > -1) isBoosted = "Yes";
     
-    let theRow4 = $("<tr>");   
-    let pokeType = $("<td>").text(type);
-    let pokeWeather =$("<td>").text(`${thePokeTypeFavorableWeather[type]} weather`);
-    let boosted = $("<td>").text(isBoosted);
+//     let theRow4 = $("<tr>");   
+//     let pokeType = $("<td>").text(type);
+//     let pokeWeather =$("<td>").text(`${thePokeTypeFavorableWeather[type]} weather`);
+//     let boosted = $("<td>").text(isBoosted);
 
-    theRow4.append(pokeType, pokeWeather, boosted);
-    theRow4.appendTo("#type");
+//     theRow4.append(pokeType, pokeWeather, boosted);
+//     theRow4.appendTo("#type");
 
-    $(".startUp").show()
+//     $(".startUp").show()
 
-    thePokeDex.push({      
-      number: number,
-      name: name,   
-      sprite: sprite,
-      type: type,  
-    })
-    localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
-  });
-}
+//     thePokeDex.push({      
+//       number: number,
+//       name: name,   
+//       sprite: sprite,
+//       type: type,  
+//     })
+//     localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
+//   });
+// }
 
-function processPokeDex() {
+// function processPokeDex() {
 
-  $("#saved").empty()
+//   $("#saved").empty()
 
-  for (let i = 0; i < thePokeDex.length; i++ ) {
-    let sv = thePokeDex[i]
+//   for (let i = 0; i < thePokeDex.length; i++ ) {
+//     let sv = thePokeDex[i]
 
-    console.log(sv)
+//     console.log(sv)
     
-    let sprite = sv.sprite
-    let number = sv.number
-    let name = sv.name
-    let type = sv.type
+//     let sprite = sv.sprite
+//     let number = sv.number
+//     let name = sv.name
+//     let type = sv.type
 
-    let theImage = $("<img>")
-    .attr("src", sprite)
-    .addClass("pokeSprite");
+//     if (name.includes("-")) name = name.replace("-", " ")  
 
-    var button = $("<button>");
+//     let theImage = $("<img>")
+//     .attr("src", sprite)
+//     .addClass("pokeSprite");
 
-    button.attr("logPokemon", i);
-    button.addClass("pokeButton")
-    button.text("X");
+//     var button = $("<button>");
 
-    let isBoosted = "No";
+//     button.attr("logPokemon", i);
+//     button.addClass("pokeButton")
+//     button.text("X");
 
-    if (weatherConditions[theWeatherCondition].indexOf(type) > -1) isBoosted = "Yes";
+//     let isBoosted = "No";
 
-    let tRow = $("<tr>")
+//     if (weatherConditions[theWeatherCondition].indexOf(type) > -1) isBoosted = "Yes";
 
-    let theButton = $("<td>").html(button)
-    let theSprite = $("<td>").html(theImage)
-    let theNumber = $("<td>").text(number)
-    let theName = $("<td>").text(name)
-    let theType = $("<td>").text(type)
-    let boosted = $("<td>").text(isBoosted);
+//     let tRow = $("<tr>")
 
-    tRow.append(theButton, theSprite, theNumber, theName, theType, boosted)
+//     let theButton = $("<td>").html(button)
+//     let theSprite = $("<td>").html(theImage)
+//     let theNumber = $("<td>").text(number)
+//     let theName = $("<td>").text(name)
+//     let theType = $("<td>").text(type)
+//     let boosted = $("<td>").text(isBoosted);
 
-    $("#saved").prepend(tRow)
+//     tRow.append(theButton, theSprite, theNumber, theName, theType, boosted)
 
-    console.log("this is the end")
-  }
-}
+//     $("#saved").prepend(tRow)
 
-$(document).on("click", ".pokeButton", function() {
-  let theClicked = $(this).attr("logPokemon");
-  console.log(theClicked)
-  thePokeDex.splice(theClicked, 1);
-  processPokeDex(thePokeDex)  
-  localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
+//     console.log("this is the end")
+//   }
+// }
 
-});
+// $(document).on("click", ".pokeButton", function() {
+//   let theClicked = $(this).attr("logPokemon");
+//   console.log(theClicked)
+//   thePokeDex.splice(theClicked, 1);
+//   processPokeDex(thePokeDex)  
+//   localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
 
-function timerUpdate() {
+// });
 
-  seconds--
+// function timerUpdate() {
 
-  $("#update").text(`Next update in ${seconds} Seconds`)
+//   seconds--
 
-  if (seconds === 1) {
-    $("#update").text(`Next update in ${seconds} Second`)
-  }
+//   if (seconds === 1) {
+//   }
 
-  if (seconds === 0) {
-    $("#update").text(`Please Wait: Updating Location and Weather Boosted Stats.`)
-      seconds = 10
-      // getLocation()
-      processPokeDex()
+//   if (seconds === 0) { 
+//       seconds = 10
+//       // getLocation()
+//       processPokeDex()
+//   }
 
-  }
+// }
 
-}
-
-processPokeDex()
+// processPokeDex()
