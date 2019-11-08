@@ -16,7 +16,7 @@ body {
 
 #submitBtn {
   display: inline;
-  color: white;;
+  color: white;
 
 }
 
@@ -117,7 +117,6 @@ height: 100vh;
 overflow-x: hidden;
 overflow-y: auto;
 perspective: 2px;
-
 }
 
 /* .section {
@@ -156,6 +155,6 @@ margin-left: 5%;
  font-family: 'Oswald', sans-serif;
 }
 .employee-card {
-  background-color: transpart
+  background-color: transparent;
 }
 
