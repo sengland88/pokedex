@@ -118,15 +118,6 @@ let seconds = 10
 
 let dexRefresh = setInterval(timerUpdate, 1000)
 
-var firebaseConfig = {
-    apiKey: "AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8",
-    databaseURL: "https://pokedex-4f772.firebaseio.com",
-  };
-
-firebase.initializeApp(firebaseConfig);
-
-let database = firebase.database();
-
 $("#submitBtn").on("click", function(event) {
 
     event.preventDefault()
@@ -141,7 +132,6 @@ $("#submitBtn").on("click", function(event) {
     for (let i = 0 ; i < thePokeDex.length ; i++ ) {
     
         if (userInput === thePokeDex[i].name) {
-            console.log("this already exists")
             $("#noPokemon").modal('show')
             return
         }
@@ -169,7 +159,6 @@ function getLocation() {
             $("location").html("Please Wait - Your Location is Loading.")
 
             $.get( "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ latitude + "," + longitude + "&key=AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8", function(data) {
-                    console.log(data)
             $("#location").html(`Your location is ${data.results[4].formatted_address}.`)
             }) 
             
@@ -190,9 +179,7 @@ function getWeather(lat , lon) {
     }).then(function(response) {
 
         let weatherResults = response.data
-        console.log(weatherResults)
         let theWeatherCode = Number(weatherResults[0].weather.code)
-        console.log(theWeatherCode)
         if (weatherCodes.hasOwnProperty(theWeatherCode)) theWeatherCondition = weatherCodes[theWeatherCode]
         $("#weather").html(`The weather in your area is currently ${theWeatherCondition}.`)
 
@@ -239,10 +226,10 @@ function errorHandling() {
       .attr("src", shiny)
       .addClass("pokeSprite");
   
-      let pokeImage = $("<td>").addClass("tRow").html(pokeSprite);
-      let pokeImageShiny = $("<td>").addClass("tRow").html(pokeShiny);    
-      let pokeName = $("<td>").text(name);
-      let pokeNumber = $("<td>").text(`# ${number}`);
+      let pokeImage = $("<td class='align-middle'>").addClass("tRow").html(pokeSprite);
+      let pokeImageShiny = $("<td class='align-middle'>").addClass("tRow").html(pokeShiny);    
+      let pokeName = $("<td class='align-middle'>").text(name);
+      let pokeNumber = $("<td class='align-middle'>").text(`# ${number}`);
   
       theRow1.append(pokeImage, pokeImageShiny);
       theRow2.append(pokeNumber, pokeName);
@@ -261,9 +248,9 @@ function errorHandling() {
   
       let theRow3 = $("<tr>");
   
-      let pokeAttack = $("<td>").text(attack);
-      let pokeHeight = $("<td>").text(`${height}"`);
-      let pokeWeight = $("<td>").text(`${weight} lbs`);
+      let pokeAttack = $("<td class='align-middle'>").text(attack);
+      let pokeHeight = $("<td class='align-middle'>").text(`${height}"`);
+      let pokeWeight = $("<td class='align-middle'>").text(`${weight} lbs`);
   
       theRow3.append(pokeAttack, pokeHeight, pokeWeight);
   
@@ -274,9 +261,9 @@ function errorHandling() {
       if (weatherConditions[theWeatherCondition].indexOf(type) > -1) isBoosted = "Yes";
       
       let theRow4 = $("<tr>");   
-      let pokeType = $("<td>").text(type);
-      let pokeWeather =$("<td>").text(`${thePokeTypeFavorableWeather[type]} weather`);
-      let boosted = $("<td>").text(isBoosted);
+      let pokeType = $("<td class='align-middle'>").text(type);
+      let pokeWeather =$("<td class='align-middle'>").text(`${thePokeTypeFavorableWeather[type]} weather`);
+      let boosted = $("<td class='align-middle'>").text(isBoosted);
   
       theRow4.append(pokeType, pokeWeather, boosted);
       theRow4.appendTo("#type");
@@ -298,9 +285,7 @@ function errorHandling() {
     $("#saved").empty()
   
     for (let i = 0; i < thePokeDex.length; i++ ) {
-      let sv = thePokeDex[i]
-  
-      console.log(sv)
+      let sv = thePokeDex[i] 
       
       let sprite = sv.sprite
       let number = sv.number
@@ -325,24 +310,21 @@ function errorHandling() {
   
       let tRow = $("<tr>")
   
-      let theButton = $("<td>").html(button)
-      let theSprite = $("<td>").html(theImage)
-      let theNumber = $("<td>").text(`# ${number}`)
-      let theName = $("<td>").text(name)
-      let theType = $("<td>").text(type)
-      let boosted = $("<td>").text(isBoosted);
+      let theButton = $("<td class='align-middle'>").html(button)
+      let theSprite = $("<td class='align-middle'>").html(theImage)
+      let theNumber = $("<td class='align-middle'>").text(`# ${number}`)
+      let theName = $("<td class='align-middle'>").text(name)
+      let theType = $("<td class='align-middle'>").text(type)
+      let boosted = $("<td class='align-middle'>").text(isBoosted);
   
       tRow.append(theButton, theSprite, theNumber, theName, theType, boosted)
   
-      $("#saved").prepend(tRow)
-  
-      console.log("this is the end")
+      $("#saved").prepend(tRow)  
     }
   }
   
   $(document).on("click", ".pokeButton", function() {
     let theClicked = $(this).attr("logPokemon");
-    console.log(theClicked)
     thePokeDex.splice(theClicked, 1);
     processPokeDex(thePokeDex)  
     localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
@@ -362,15 +344,7 @@ function errorHandling() {
         processPokeDex()
     }
      
-  }
-  
-function myFunction() {
-  var x = $("#myDIV")
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+  } 
+
   
   processPokeDex()  
