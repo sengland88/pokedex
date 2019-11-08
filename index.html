@@ -4,6 +4,10 @@
 <head>
 
   <title>Poke Dex</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="assets/images/pokeball_Fav.png">
 
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
 
@@ -26,33 +30,90 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8&callback=initMap"
     type="text/javascript"></script>
 
-  <!-- firebase cdn -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-
-  <!-- anime.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-
-  <link rel="shortcut icon" type="image/png" href="assets/images/pokeball.png">
 </head>
 
 <body>
-  <main class="wrapper">
+    <div class="modal" id="noPokemon" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">A Message from Professor Oak</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
+              <br>
+              <br>
+              <p>It appears that you already discovered this pokemon! There is no need to make a new entry.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="errorMessage" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">A Message from Professor Oak</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
+              <br>
+              <br>
+              <p>Oof ... looks like you encountered an issue created by Team Rocket! Rest assured that my team will be
+                looking into this issue!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="emptySearch" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">A Message from Professor Oak</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
+              <br>
+              <br>
+              <p>Whoops ... looks like you accidentally hit the button without entering any data.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <main class="wrapper">
 
     <div class="container">
-
 
       <div class="row mt-1 mb-2">
         <div class="col-sm">
 
-          <div class="jumbotron shelby">
+          <div class="jumbotron theDiv" id="shelby">
 
             <div><img src="assets/images/pokedex_banner.png" class="img-fluid" alt="Responsive image"></div>
             <!-- <hr class="my-4">                     -->
           </div>
 
-          <div class="card employee-card mt-4 theMessage">
-            <div class="card-body">
+          <div class="card employee-card mt-4 theMessage theEmployeeCard">
+            <div class="card-body rounded theCardBody">
               <p>Welcome Trainer!</p>
               <p>So you think you have what it takes to be the very best like no one ever was, eh? We definitely hope
                 so.</p>
@@ -84,8 +145,8 @@
             </div>
           </div>
 
-          <div class="card employee-card mt-4 text-center theMessage">
-            <div class="card-body">
+          <div class="card employee-card mt-4 text-center theMessage theEmployeeCard" id="theDiv">
+            <div class="card-body rounded theCardBody">
               <p><i>Press the button below to initialize your PokeDex.</i></p>
               <br>
               <button type="button" class="btn btn-dark" id="activateDex">Activate Your PokeDex</button>
@@ -98,9 +159,9 @@
 
       <div class="row startUp">
 
-        <div class="col-sm">
-          <div class="card employee-card">
-            <div class="card-body">
+        <div class="col-sm" id="theDiv">
+          <div class="card employee-card theEmployeeCard">
+            <div class="card-body rounded theCardBody">
               <input placeholder="Type in either the Pokemon name or PokeDex Number" type="text" id="search"
                 autocomplete="off" class="autocomplete"></p>
               <a id="submitBtn" class="btn btn-lg btn-dark" role="submit">What's That Pokemon!</a>
@@ -109,76 +170,9 @@
           </div>
         </div>
 
-        <div class="modal" id="noPokemon" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">A Message from Professor Oak</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
-                <br>
-                <br>
-                <p>It appears that you already discovered this pokemon! There is no need to make a new entry.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal" id="errorMessage" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">A Message from Professor Oak</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
-                <br>
-                <br>
-                <p>Oof ... looks like you encountered an issue created by Team Rocket! Rest assured that my team will be
-                  looking into this issue!</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal" id="emptySearch" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">A Message from Professor Oak</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
-                <br>
-                <br>
-                <p>Whoops ... looks like you accidentally hit the button without entering any data.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm">
-          <div class="card employee-card">
-            <div class="card-body">
+        <div class="col-sm" id="theDiv">
+          <div class="card employee-card theEmployeeCard">
+            <div class="card-body rounded theCardBody">
               <p id="location"></p>
               <p id="weather"></p>
               <p id="update"></p>
@@ -189,9 +183,9 @@
 
       <div class="row mt-3 startUp">
 
-        <div class="col-sm">
-          <div class="card employee-card">
-            <div class="card-body">
+        <div class="col-sm" id="theDiv">
+          <div class="card employee-card theEmployeeCard">
+            <div class="card-body rounded theCardBody">
               <table class="table text-center align-middle">
                 <thead>
                   <tr>
@@ -207,9 +201,9 @@
           </div>
         </div>
 
-        <div class="col-sm">
-          <div class="card employee-card">
-            <div class="card-body">
+        <div class="col-sm" id="theDiv">
+          <div class="card employee-card theEmployeeCard">
+            <div class="card-body rounded theCardBody">
               <table class="table text-center align-middle">
                 <thead>
                   <tr>
@@ -225,9 +219,9 @@
           </div>
         </div>
 
-        <div class="col-sm">
-          <div class="card employee-card">
-            <div class="card-body">
+        <div class="col-sm" id="theDiv">
+          <div class="card employee-card theEmployeeCard">
+            <div class="card-body rounded theCardBody">
               <table class="table text-center align-middle">
                 <thead>
                   <tr>
@@ -243,14 +237,13 @@
             </div>
           </div>
         </div>
-
       </div>
       
 
       <div class="row mt-3 startUp">
-        <div class="col-sm">
-          <div class="card employee-card">
-            <div class="card-body">
+        <div class="col-sm" id="theDiv">
+          <div class="card employee-card theEmployeeCard">
+            <div class="card-body rounded theCardBody">
               <table class="table text-center align-middle">
                 <thead>
                   <tr>
@@ -268,10 +261,11 @@
         </div>
       </div>
 
-      <div class="row mt-3 theDex">
+      <div class="row mt-3 theDex" id="theDiv">
         <div class="col-sm">
-          <div class="card employee-card">
-            <div class="card-body">
+          <div class="card employee-card theEmployeeCard">
+            <div class="card-body rounded theCardBody">
+            <div class="table-responsive-sm">
               <table class="table text-center align-middle">
                 <thead>
                   <tr>
@@ -288,6 +282,7 @@
                 </tbody>
               </table>
             </div>
+            </div>
           </div>
         </div>
       </div>
@@ -298,7 +293,7 @@
     <script src="assets/javascript/app.js" type="text/javascript"></script>
     <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
 
+  </main>
 </body>
-</main>
 
 </html>

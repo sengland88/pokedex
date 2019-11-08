@@ -1,5 +1,9 @@
 body {
-  background-image: url("../images/229879.jpg");
+  background-image: url("../images/pokeball.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Oswald', sans-serif;
+}
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Oswald', sans-serif;
@@ -10,50 +14,29 @@ body {
 }
 
 .tRow {
-  padding: 0;
-  
+  padding: 0;  
 }
 
 #submitBtn {
   display: inline;
-  color: white;;
+  color: white;
+  background-color:rgb(0, 16, 238);
+  font-size: 20px;
+  margin-left: 5%;
 }
 
-/* anime.js */
-
-.ml11 {
-  font-weight: 700;
-  font-size: 3.5em;
+#shelby {
+  background-color: transparent; 
 }
 
-.ml11 .text-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 0.1em;
-  padding-right: 0.05em;
-  padding-bottom: 0.15em;
+.theCardBody {
+ border: 5px solid red;
+ font-family: 'Oswald', sans-serif;
 }
 
-.ml11 .line {
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 3px;
-  background-color: #fff;
-  transform-origin: 0 50%;
+.theEmployeeCard {
+  background-color: transparent;
 }
-
-.ml11 .line1 { 
-  top: 0; 
-  left: 0;
-}
-
-.ml11 .letter {
-  display: inline-block;
-  line-height: 1em;
-}
-
 
 /* autocomplete */
 
@@ -116,44 +99,44 @@ height: 100vh;
 overflow-x: hidden;
 overflow-y: auto;
 perspective: 2px;
-
 }
 
-/* .section {
-position: relative;
-height: 75vh;
-background-image: url("/Users/nicholasmartello/Desktop/Dev/UCF/Project1/pokedex/assets/images/background.jpg");
-background-size: cover;
-} */
+@media (max-width: 575.98px) { 
+  #theDiv {
+    margin: 10px;
+  }
+  .startUp {
+    margin: -10px
+  }
+ }
 
-/* parallax */
+ @media (max-width: 767.98px) { 
+    #theDiv {
+      margin: 10px;
+    }
+    .startUp {
+      margin: -10px
+    }
+  }
 
-/* .parallax::after {
-content: " ";
-position: absolute;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-transform: translateZ(-1px) scale(1.5);
-background-size: 100%;
-z-index: -1;
-} */
+ @media (max-width: 991.98px) {
+    #theDiv {
+      margin: 10px;
+    }
+    .startUp {
+      margin: -10px
+    }
+  }
 
-#submitBtn {
-background-color:rgb(0, 16, 238);
-font-size: 20px;
-margin-left: 5%;
-}
-.jumbotron.shelby{
-  background-color: transparent;
- 
-}
-.card-body {
- border: 10px solid red;
- font-family: 'Oswald', sans-serif;
- 
-}
-#activateDex {
-background-color: rgb(0, 16, 238);
-}
+ @media (max-width: 1199.98px) { 
+    #theDiv {
+      margin: 10px;
+    }
+    .startUp {
+      margin: -10px
+    }
+  }
+
+
+
+
