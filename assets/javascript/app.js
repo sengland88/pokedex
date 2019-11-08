@@ -8,13 +8,24 @@ $("#activateDex").on("click", function() {
   $(".theDex").show()
 })
 
+// $("#activateDexMusic").on("click", function() {
+//   $(".theMessage").hide()
+//   $(".startUp").show()
+//   $(".theDex").show()
+// })
+
+
 const sound = new Audio();
-  document.getElementById("activateDex").addEventListener("click", playSound);
+  document.getElementById("activateDexMusic").addEventListener("click", playSound);
   
-  function playSound() {
-    sound.src = "assets/audio/theme-song.mp3";
-    sound.play();
-  }
+function playSound() {
+  sound.src = "assets/audio/theme-song.mp3";
+  sound.play();
+
+    $(".theMessage").hide()
+    $(".startUp").show()
+    $(".theDex").show()
+}
 
 
 let theWeatherCondition = "unknown"
