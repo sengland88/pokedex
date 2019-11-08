@@ -22,8 +22,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <!-- google maps authentication -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8&callback=initMap"
-  type="text/javascript"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8&callback=initMap"
+    type="text/javascript"></script>
 
   <!-- firebase cdn -->
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
@@ -32,248 +33,268 @@
   <!-- anime.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-  <link rel="shortcut icon" type="image/png"
-href="assets/images/pokeball.png">
+  <link rel="shortcut icon" type="image/png" href="assets/images/pokeball.png">
 </head>
 
 <body>
-    <main class="wrapper">
+  <main class="wrapper">
 
     <div class="container">
-        
 
-        <div class="row mt-1 mb-2">
-            <div class="col-sm">
+
+      <div class="row mt-1 mb-2">
+        <div class="col-sm">
+
+          <div class="jumbotron shelby">
+
+            <div><img src="assets/images/pokedex_banner.png" class="img-fluid" alt="Responsive image"></div>
+            <!-- <hr class="my-4">                     -->
+          </div>
+
+          <div class="card employee-card mt-4 theMessage">
+            <div class="card-body">
+              <p>Welcome Trainer!</p>
+              <p>So you think you have what it takes to be the very best like no one ever was, eh? We definitely hope
+                so.</p>
+              <p>Professor Oak and his team of PokeMasters have developed a tool to help you on your quest to catch em'
+                all. This program is called the PokeDex, a very powerful tool to help young trainers like yourself on
+                their journey to becoming a Pokemon Master.</p>
+              <p>Not many know that there are over 800 known Pokemon in existence today, and with new ones being
+                discovered every day, the PokeDex will help you get to know the vast world we share with this amazing
+                creatures.</p>
+              <p>Logging your Pokemon is simple. Professor Oak has done most of the heavy lifting for you and loaded in
+                all of the known Pokemon names (as their spelling can be a little confusing for young trainers). To
+                begin, just start typing a Pokemon's name ...for example, let's use Pikachu.</p> 
                 
-                <div class="jumbotron shelby">
-
-                    <div><img src="assets/images/pokedex_banner.png" class="img-fluid" alt="Responsive image"></div>
-                    <!-- <hr class="my-4">                     -->
-                </div>
-
-                <div class="card employee-card mt-4 theMessage">
-                  <div class="card-body">
-                    <p>Welcome Trainer!</p>
-                    <p>So you think you have what it takes to be the very best like no one ever was, eh? We definitely hope so.</p>                      
-                    <p>Professor Oak and his team of PokeMasters have developed a tool to help you on your quest to catch em' all. This program is called the PokeDex, a very powerful tool to help young trainers like yourself on their journey to becoming a Pokemon Master.</p>
-                    <p>Not many know that there are over 800 known Pokemon in existence today, and with new ones being discovered every day, the PokeDex will help you get to know the vast world we share with this amazing creatures.</p>
-                    <p>Logging your Pokemon is simple. Professor Oak has done most of the heavy lifting for you and loaded in all of the known Pokemon names (as their spelling can be a little confusing for young trainers). To begin, just start typing a Pokemon's name ...for example, let's use Pikachu. Not only will the PokeDex tell you the spelling of its name, but it will also reveal its PokeDex entry number, attack, height, weight and Pokemon Type, in addition to what weather it performs best in and if it it currently weather boosted. Oh, and because Professor Oak and his team are the best there is, they have even provided you with pictures of their normal form and their extremely rare shiny form. (If you come across a shiny pokemon, do not hesitate to capture it).</p>
-                    <p>That's right — Pokemon can be weather boosted.</p>
-                    <p>Luckily, the PokeDex comes with geolocation that can will track the weather in your area, as long as you give it permission to do so.</p>
-                    <p>The best part is that the PokeDex will log all of your finding. And while there is a plenty of storage, feel free to delete entries from your PokeDex storage.</p>
-                    <p>And remember the Pokemon trainer loyalty oath: to catch them is your real test and to train them is your cause.</p>
-                    <p>Best of luck, Trainer, on your quest to become a Pokemon Master!</p>
-                   
-                  </div>
-              </div>   
-              
-              <div class="card employee-card mt-4 text-center theMessage">
-                <div class="card-body">
-                    <p><i>Press the button below to initialize your PokeDex.</i></p>
-                    <br>
-                    <button type="button" class="btn btn-dark" id="activateDex">Activate Your PokeDex</button>
-                </div>
-              </div>  
+                <p>Not only will the PokeDex
+                tell you the spelling of its name, but it will also reveal its PokeDex entry number, attack, height,
+                weight and Pokemon Type, in addition to what weather it performs best in and if it it currently weather
+                boosted. Oh, and because Professor Oak and his team are the best there is, they have even provided you
+                with pictures of their normal form and their extremely rare shiny form. (If you come across a shiny
+                pokemon, do not hesitate to capture it).</p>
+              <p>That's right — Pokemon can be weather boosted.</p>
+              <p>Luckily, the PokeDex comes with geolocation that can will track the weather in your area, as long as
+                you give it permission to do so.</p>
+              <p>The best part is that the PokeDex will log all of your finding. And while there is a plenty of storage,
+                feel free to delete entries from your PokeDex storage.</p>
+              <p>And remember the Pokemon trainer loyalty oath: to catch them is your real test and to train them is
+                your cause.</p>
+              <p>Best of luck, Trainer, on your quest to become a Pokemon Master!</p>
 
             </div>
-        </div>
+          </div>
 
-        <div class="row startUp">           
-
-                <div class="col-sm">
-                    <div class="card employee-card">
-                        <div class="card-body">
-                            <input placeholder="Type in either the Pokemon name or PokeDex Number" type="text" id="search" autocomplete="off" class="autocomplete"></p>
-                            <a id="submitBtn" class="btn btn-lg btn-dark" role="submit">What's That Pokemon!</a>
-                        </div>
-                    </div>            
-                </div>
-
-                <div class="modal" id="noPokemon" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">A Message from Professor Oak</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
-                            <br>
-                            <br>
-                          <p>It appears that you already discovered this pokemon! There is no need to make a new entry.</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div class="modal" id="errorMessage" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">A Message from Professor Oak</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
-                            <br>
-                            <br>
-                          <p>Oof ... looks like you encountered an issue created by Team Rocket! Rest assured that my team will be looking into this issue!</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="modal" id="emptySearch" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">A Message from Professor Oak</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
-                            <br>
-                            <br>
-                          <p>Whoops ... looks like you accidentally hit the button without entering any data.</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div class="col-sm">
-                        <div class="card employee-card">
-                            <div class="card-body">
-                                <p id="location"></p>
-                                <p id="weather"></p>
-                                <p id="update"></p>
-                            </div>
-                        </div>            
-                </div>
-        </div>
-
-        <div class="row mt-3 startUp">           
-
-            <div class="col-sm">
-                <div class="card employee-card">
-                    <div class="card-body">
-                        <table class="table text-center align-middle">
-                            <thead>
-                                <tr>
-                                <th scope="col">PokeDex Entry</th>
-                                <th scope="col">Name</th>
-                                </tr>
-                            </thead>
-                            <tbody id="discovered">
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>            
+          <div class="card employee-card mt-4 text-center theMessage">
+            <div class="card-body">
+              <p><i>Press the button below to initialize your PokeDex.</i></p>
+              <br>
+              <button type="button" class="btn btn-dark" id="activateDex">Activate Your PokeDex</button>
+              <button type="button" class="btn btn-dark" id="activateDexMusic">Activate Your PokeDex With Music</button>
             </div>
+          </div>
 
-            <div class="col-sm">
-                    <div class="card employee-card">
-                        <div class="card-body">
-                            <table class="table text-center align-middle">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">Non-shiny</th>
-                                    <th scope="col">Shiny</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="photo">
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        </div>
+      </div>
+
+      <div class="row startUp">
+
+        <div class="col-sm">
+          <div class="card employee-card">
+            <div class="card-body">
+              <input placeholder="Type in either the Pokemon name or PokeDex Number" type="text" id="search"
+                autocomplete="off" class="autocomplete"></p>
+              <a id="submitBtn" class="btn btn-lg btn-dark" role="submit">What's That Pokemon!</a>
+
             </div>
-
-            <div class="col-sm">
-                <div class="card employee-card">
-                    <div class="card-body">
-                        <table class="table text-center align-middle">
-                            <thead>
-                                <tr>
-                                <th scope="col">Attack</th>
-                                <th scope="col">Height</th>
-                                <th scope="col">Weight</th>
-                                </tr>
-                            </thead>
-                            <tbody id="stats">
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>           
-        
+          </div>
         </div>
 
-
-        <div class="row mt-3 startUp">
-            <div class="col-sm">
-                    <div class="card employee-card">
-                        <div class="card-body">
-                            <table class="table text-center align-middle">
-                            <thead>
-                                <tr>
-                                <th scope="col">Pokemon Type</th>
-                                <th scope="col">Performs Best In</th>
-                                <th scope="col">Is it Weather Boosted?</th>
-                                </tr>
-                            </thead>
-                            <tbody id="type">
-                                </tr>
-                            </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+        <div class="modal" id="noPokemon" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">A Message from Professor Oak</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
+                <br>
+                <br>
+                <p>It appears that you already discovered this pokemon! There is no need to make a new entry.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="row mt-3 theDex">
-                <div class="col-sm">
-                        <div class="card employee-card">
-                            <div class="card-body">
-                                <table class="table text-center align-middle">
-                                <thead>
-                                    <tr>
-                                    <th scope="col"> </th>
-                                    <th scope="col">Sprite</th>
-                                    <th scope="col">PokeDex Entry</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Weather Boosted?</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="saved">
-                                    </tr>
-                                </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+        <div class="modal" id="errorMessage" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">A Message from Professor Oak</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
+                <br>
+                <br>
+                <p>Oof ... looks like you encountered an issue created by Team Rocket! Rest assured that my team will be
+                  looking into this issue!</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             </div>
-    
+          </div>
+        </div>
+
+        <div class="modal" id="emptySearch" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">A Message from Professor Oak</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <img src="assets/images/professor.jpg" class="img-fluid" alt="Responsive image">
+                <br>
+                <br>
+                <p>Whoops ... looks like you accidentally hit the button without entering any data.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="card employee-card">
+            <div class="card-body">
+              <p id="location"></p>
+              <p id="weather"></p>
+              <p id="update"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 startUp">
+
+        <div class="col-sm">
+          <div class="card employee-card">
+            <div class="card-body">
+              <table class="table text-center align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col">PokeDex Entry</th>
+                    <th scope="col">Name</th>
+                  </tr>
+                </thead>
+                <tbody id="discovered">
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="card employee-card">
+            <div class="card-body">
+              <table class="table text-center align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col">Non-shiny</th>
+                    <th scope="col">Shiny</th>
+                  </tr>
+                </thead>
+                <tbody id="photo">
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm">
+          <div class="card employee-card">
+            <div class="card-body">
+              <table class="table text-center align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col">Attack</th>
+                    <th scope="col">Height</th>
+                    <th scope="col">Weight</th>
+                  </tr>
+                </thead>
+                <tbody id="stats">
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row mt-3 startUp">
+        <div class="col-sm">
+          <div class="card employee-card">
+            <div class="card-body">
+              <table class="table text-center align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col">Pokemon Type</th>
+                    <th scope="col">Performs Best In</th>
+                    <th scope="col">Is it Weather Boosted?</th>
+                  </tr>
+                </thead>
+                <tbody id="type">
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 theDex">
+        <div class="col-sm">
+          <div class="card employee-card">
+            <div class="card-body">
+              <table class="table text-center align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col"> </th>
+                    <th scope="col">Sprite</th>
+                    <th scope="col">PokeDex Entry</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Weather Boosted?</th>
+                  </tr>
+                </thead>
+                <tbody id="saved">
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <script src="assets/javascript/pokemon_names.js" type="text/javascript"></script>    
+    <script src="assets/javascript/pokemon_names.js" type="text/javascript"></script>
     <script src="assets/javascript/app.js" type="text/javascript"></script>
     <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
 
