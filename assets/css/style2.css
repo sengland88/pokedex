@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/background2.jpg");
+  background-image: url("../images/pokeball.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Oswald', sans-serif;
@@ -17,6 +17,7 @@ body {
 #submitBtn {
   display: inline;
   color: white;;
+
 }
 
 /* anime.js */
@@ -144,16 +145,17 @@ z-index: -1;
 background-color:rgb(0, 16, 238);
 font-size: 20px;
 margin-left: 5%;
+
 }
 .jumbotron.shelby{
   background-color: transparent;
  
 }
 .card-body {
- border: 10px solid red;
+ border: 5px solid red;
  font-family: 'Oswald', sans-serif;
- 
 }
-#activateDex {
-background-color: rgb(0, 16, 238);
+.employee-card {
+  background-color: transpart
 }
+
