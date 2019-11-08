@@ -1,19 +1,28 @@
+const hasVisited = false 
+
 getLocation()
 $(".startUp").hide()
 $(".theDex").hide()
 
+if (localStorage.getItem("hasVisited")) {
+  $(".theMessage").hide()
+  $(".startUp").show()
+  $(".theDex").show()
+}
+
 $("#activateDex").on("click", function() {
+
+  $(".theMessage").hide()
+  $(".startUp").show()
+  $(".theDex").show()
+  hasVisited = localStorage.setItem("hasVisited", true)
+})
+
+$("#activateDexMusic").on("click", function() {
   $(".theMessage").hide()
   $(".startUp").show()
   $(".theDex").show()
 })
-
-// $("#activateDexMusic").on("click", function() {
-//   $(".theMessage").hide()
-//   $(".startUp").show()
-//   $(".theDex").show()
-// })
-
 
 const sound = new Audio();
   document.getElementById("activateDexMusic").addEventListener("click", playSound);
@@ -25,8 +34,8 @@ function playSound() {
     $(".theMessage").hide()
     $(".startUp").show()
     $(".theDex").show()
+    hasVisited = localStorage.setItem("hasVisited", true)
 }
-
 
 let theWeatherCondition = "unknown"
 
