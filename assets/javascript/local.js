@@ -1,10 +1,16 @@
-
-let thePokeDex = JSON.parse(localStorage.getItem("thePokeDex")) || [];
-console.log(thePokeDex);
+let thePokeDex = []
 let seconds = 10
 
 let dexRefresh = setInterval(timerUpdate, 1000)
 
+var firebaseConfig = {
+    apiKey: "AIzaSyBlUXLLW6bchhS3Niw7AIrlNyOyPJSYYX8",
+    databaseURL: "https://pokedex-4f772.firebaseio.com",
+  };
+
+firebase.initializeApp(firebaseConfig);
+
+let database = firebase.database();
 
 function getPokemon(poke) {
   
@@ -64,7 +70,7 @@ function getPokemon(poke) {
     let theRow3 = $("<tr>");
 
     let pokeAttack = $("<td>").text(attack);
-    let pokeHeight = $("<td>").text(height);    
+    let pokeHeight = $("<td>").text(height);
     let pokeWeight = $("<td>").text(weight);
 
     theRow3.append(pokeAttack, pokeHeight, pokeWeight);
@@ -84,15 +90,15 @@ function getPokemon(poke) {
     theRow4.appendTo("#type");
 
     $(".startUp").show()
+    $(".second-button-group").show()
 
-    thePokeDex.push({
-      
+    database.ref().push({
+      sprite: sprite,
       number: number,
       name: name,
-      
+      type: type,
     })
-    localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
-    });
+  });
 }
 
 database.ref().on("child_added", function(snapshot){
@@ -140,11 +146,11 @@ function processPokeDex() {
 
     console.log("this is the end")
   }
-//   getPokemon()
-//   thePokeDex.push({
-//     name: name,
-//   })
-//   localStorage.setItem("thePokeDex", JSON.stringify(thePokeDex))
+  getPokemon()
+  thePokeDex.push({
+    name: name
+  })
+  localStorage.setItem(thePokeDex)
 }
 
 function timerUpdate() {
@@ -166,3 +172,13 @@ function timerUpdate() {
   }
   
 }
+
+
+let homeButton = $("<button>").text("Go Back Home");
+
+
+homeButton.on("click", function (event) {
+
+
+})
+ 
