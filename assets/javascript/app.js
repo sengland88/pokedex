@@ -8,6 +8,14 @@ $("#activateDex").on("click", function() {
   $(".theDex").show()
 })
 
+const sound = new Audio();
+  document.getElementById("activateDex").addEventListener("click", playSound);
+  
+  function playSound() {
+    sound.src = "assets/audio/theme-song.mp3";
+    sound.play();
+  }
+
 
 let theWeatherCondition = "unknown"
 
