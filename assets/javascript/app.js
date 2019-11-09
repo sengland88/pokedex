@@ -80,7 +80,7 @@ const weatherConditions = {
 }
 
 let thePokeDex = JSON.parse(localStorage.getItem("thePokeDex")) || [];
-let seconds = 10
+let seconds = 5
 
 // variable to update timer every 1 second
 let dexRefresh = setInterval(timerUpdate, 1000)
@@ -331,7 +331,9 @@ function processPokeDex() {
 
     button.attr("logPokemon", i);
     button.addClass("pokeButton")
-    button.text("X");
+    button.addClass("btn btn-danger")
+    button.addClass("btn-sm")
+    button.text(" X ");
 
     let isBoosted = "No";
 
@@ -377,8 +379,8 @@ function timerUpdate() {
   }
 
   if (seconds === 0) { 
-      seconds = 10
-      // getLocation()
+      seconds = 5
+      getLocation()
       processPokeDex()
   }
     
