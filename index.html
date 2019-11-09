@@ -99,6 +99,7 @@
           </div>
         </div>
       </div>
+
     <main class="wrapper">
 
     <div class="container">
@@ -114,43 +115,48 @@
 
           <div class="card employee-card mt-4 theMessage theEmployeeCard">
             <div class="card-body rounded theCardBody">
-              <p>Welcome Trainer!</p>
-              <p>So you think you have what it takes to be the very best like no one ever was, eh? We definitely hope
-                so.</p>
-              <p>Professor Oak and his team of PokeMasters have developed a tool to help you on your quest to catch em'
+                <h3>Welcome Trainer!</h3>
+                <br>
+                <p>So you think you have what it takes to be the very best like no one ever was, eh? We definitely hope
+                so!</p>
+                <p>Professor Oak and his team of PokeMasters have developed a tool to help you on your quest to catch em'
                 all. This program is called the PokeDex, a very powerful tool to help young trainers like yourself on
                 their journey to becoming a Pokemon Master.</p>
-              <p>Not many know that there are over 800 known Pokemon in existence today, and with new ones being
-                discovered every day, the PokeDex will help you get to know the vast world we share with this amazing
+                <p>Not many know that there are over 800 known Pokemon in existence today, and with new ones being
+                discovered every day, the PokeDex will help you get to know the vast world we share with these amazing
                 creatures.</p>
-              <p>Logging your Pokemon is simple. Professor Oak has done most of the heavy lifting for you and loaded in
+                <br>
+                <p><strong>How to Operate the PokeDex</strong></p>
+                <p>Logging your Pokemon is simple. Professor Oak has done most of the heavy lifting for you and loaded in
                 all of the known Pokemon names (as their spelling can be a little confusing for young trainers). To
-                begin, just start typing a Pokemon's name ...for example, let's use Pikachu.</p> 
-                
+                begin, just start typing a Pokemon's name ... for example, let's use Pikachu.</p> 
+
                 <p>Not only will the PokeDex
                 tell you the spelling of its name, but it will also reveal its PokeDex entry number, attack, height,
-                weight and Pokemon Type, in addition to what weather it performs best in and if it it currently weather
-                boosted. Oh, and because Professor Oak and his team are the best there is, they have even provided you
+                weight and Pokemon Type, in addition to what weather it performs best in and if it currently weather
+                boosted.</p>
+                <p>That's right — Pokemon can be weather boosted.</p>
+                <p>Luckily, the PokeDex comes with geolocation that will track the weather in your area, as long as
+                you give it permission to do so.</p>
+
+                <p>Oh, and because Professor Oak and his team are the best there is, they have even provided you
                 with pictures of their normal form and their extremely rare shiny form. (If you come across a shiny
                 pokemon, do not hesitate to capture it).</p>
-              <p>That's right — Pokemon can be weather boosted.</p>
-              <p>Luckily, the PokeDex comes with geolocation that can will track the weather in your area, as long as
-                you give it permission to do so.</p>
-              <p>The best part is that the PokeDex will log all of your finding. And while there is a plenty of storage,
-                feel free to delete entries from your PokeDex storage.</p>
-              <p>And remember the Pokemon trainer loyalty oath: to catch them is your real test and to train them is
+                <p>The best part is that the PokeDex will log all of your discoveries. And while there is a plenty of storage,
+                feel free to delete entries from your PokeDex.</p>
+                <p>And remember the Pokemon trainer loyalty oath: to catch them is your real test and to train them is
                 your cause.</p>
-              <p>Best of luck, Trainer, on your quest to become a Pokemon Master!</p>
+                <p>Best of luck, Trainer, on your quest to become a Pokemon Master!</p>
 
             </div>
           </div>
 
-          <div class="card employee-card mt-4 text-center theMessage theEmployeeCard" id="theDiv">
+          <div class="card employee-card text-center theMessage theEmployeeCard mt-3" id="theDiv">
             <div class="card-body rounded theCardBody">
-              <p><i>Press the button below to initialize your PokeDex.</i></p>
+              <p><i>Press a button below to activate your PokeDex.</i></p>
               <br>
-              <button type="button" class="btn btn-dark" id="activateDex">Activate Your PokeDex</button>
-              <button type="button" class="btn btn-dark" id="activateDexMusic">Activate Your PokeDex With Music</button>
+              <button type="button" class="btn btn-dark m-2" id="activateDex">Activate Your PokeDex</button>
+              <button type="button" class="btn btn-dark m-2" id="activateDexMusic">Activate Your PokeDex With Music</button>
             </div>
           </div>
 
@@ -261,6 +267,16 @@
         </div>
       </div>
 
+      <div class="row mt-3 startUp text-center">
+          <div class="col-sm">
+
+          <button class="btn btn-dark mx-5 m-2 btnRow" id="the-message">Trainer Message</button>
+          <button class="btn btn-dark mx-1 m-2 btnRow" id="hide-dex">Show / Hide PokeDex</button>
+          <button class="btn btn-dark mx-5 m-2 btnRow" id="pause-play-music">Play / Pause</button>
+        
+        </div>
+      </div>
+
       <div class="row mt-3 theDex" id="theDiv">
         <div class="col-sm">
           <div class="card employee-card theEmployeeCard">
@@ -291,7 +307,6 @@
 
     <script src="assets/javascript/pokemon_names.js" type="text/javascript"></script>
     <script src="assets/javascript/app.js" type="text/javascript"></script>
-    <script src="assets/javascript/PokeDexApp.js" type="text/javascript"></script>
 
   </main>
 </body>

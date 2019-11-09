@@ -4,10 +4,11 @@ body {
   background-repeat: no-repeat;
   font-family: 'Oswald', sans-serif;
 }
-  background-size: cover;
-  background-repeat: no-repeat;
+
+h3 {
   font-family: 'Oswald', sans-serif;
 }
+  
 .pokeSprite {
   padding: 0;
   margin: 0;
@@ -29,9 +30,15 @@ body {
   background-color: transparent; 
 }
 
+.btnRow {
+  font-family: 'Oswald', sans-serif;
+}
+
 .theCardBody {
  border: 5px solid red;
  font-family: 'Oswald', sans-serif;
+ font-size: 16px;
+ line-height: 25px;
 }
 
 .theEmployeeCard {
