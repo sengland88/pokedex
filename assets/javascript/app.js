@@ -380,7 +380,7 @@ function timerUpdate() {
 
   if (seconds === 0) { 
       seconds = 5
-      getLocation()
+//       getLocation()
       processPokeDex()
   }
     
